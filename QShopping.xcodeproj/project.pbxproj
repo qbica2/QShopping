@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
-		E0C5983429F92B0700CC1DED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* ViewController.swift */; };
+		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
 		E0C5983729F92B0700CC1DED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983529F92B0700CC1DED /* Main.storyboard */; };
 		E0C5983929F92B0800CC1DED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983829F92B0800CC1DED /* Assets.xcassets */; };
 		E0C5983C29F92B0800CC1DED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983A29F92B0800CC1DED /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0C5983329F92B0700CC1DED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0C5983329F92B0700CC1DED /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		E0C5983629F92B0700CC1DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0C5983829F92B0800CC1DED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0C5983B29F92B0800CC1DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,13 +58,21 @@
 			children = (
 				E0C5982F29F92B0700CC1DED /* AppDelegate.swift */,
 				E0C5983129F92B0700CC1DED /* SceneDelegate.swift */,
-				E0C5983329F92B0700CC1DED /* ViewController.swift */,
-				E0C5983529F92B0700CC1DED /* Main.storyboard */,
+				E0C5983329F92B0700CC1DED /* LandingViewController.swift */,
+				E0C5984329F959B700CC1DED /* Views */,
 				E0C5983829F92B0800CC1DED /* Assets.xcassets */,
 				E0C5983A29F92B0800CC1DED /* LaunchScreen.storyboard */,
 				E0C5983D29F92B0800CC1DED /* Info.plist */,
 			);
 			path = QShopping;
+			sourceTree = "<group>";
+		};
+		E0C5984329F959B700CC1DED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0C5983529F92B0700CC1DED /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C5983429F92B0700CC1DED /* ViewController.swift in Sources */,
+				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
 			);
@@ -293,8 +301,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +310,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kubilay.QShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,8 +332,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +341,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kubilay.QShopping;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
