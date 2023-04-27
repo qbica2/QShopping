@@ -13,6 +13,10 @@
 		E0C5983729F92B0700CC1DED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983529F92B0700CC1DED /* Main.storyboard */; };
 		E0C5983929F92B0800CC1DED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983829F92B0800CC1DED /* Assets.xcassets */; };
 		E0C5983C29F92B0800CC1DED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C5983A29F92B0800CC1DED /* LaunchScreen.storyboard */; };
+		E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984529FA7C3A00CC1DED /* Constants.swift */; };
+		E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */; };
+		E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */; };
+		E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		E0C5983829F92B0800CC1DED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0C5983B29F92B0800CC1DED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0C5983D29F92B0800CC1DED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0C5984529FA7C3A00CC1DED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesterRegisterViewController.swift; sourceTree = "<group>"; };
+		E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,14 @@
 		E0C5982E29F92B0700CC1DED /* QShopping */ = {
 			isa = PBXGroup;
 			children = (
+				E0C5984429FA7C2500CC1DED /* SupportingFiles */,
+				E0C5983329F92B0700CC1DED /* LandingViewController.swift */,
+				E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */,
+				E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */,
+				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
+				E0C5984329F959B700CC1DED /* Views */,
 				E0C5982F29F92B0700CC1DED /* AppDelegate.swift */,
 				E0C5983129F92B0700CC1DED /* SceneDelegate.swift */,
-				E0C5983329F92B0700CC1DED /* LandingViewController.swift */,
-				E0C5984329F959B700CC1DED /* Views */,
 				E0C5983829F92B0800CC1DED /* Assets.xcassets */,
 				E0C5983A29F92B0800CC1DED /* LaunchScreen.storyboard */,
 				E0C5983D29F92B0800CC1DED /* Info.plist */,
@@ -73,6 +85,14 @@
 				E0C5983529F92B0700CC1DED /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E0C5984429FA7C2500CC1DED /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E0C5984529FA7C3A00CC1DED /* Constants.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
+				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
+				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
+				E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
