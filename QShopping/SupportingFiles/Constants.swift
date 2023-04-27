@@ -10,5 +10,7 @@ import Foundation
 struct K {
     struct segues {
         static let landingToLogin = "landingToLogin"
+        static let landingToRegister = "landingToRegister"
+        static let landingToTester = "landingToTester"
     }
 }
