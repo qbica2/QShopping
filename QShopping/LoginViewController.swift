@@ -20,6 +20,15 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        for view in [usernameView,passwordView] {
+            view?.layer.cornerRadius = 12
+            view?.layer.masksToBounds = true
+        }
+        usernameErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+    }
 
     @IBAction func loginPressed(_ sender: UIButton) {
     }
