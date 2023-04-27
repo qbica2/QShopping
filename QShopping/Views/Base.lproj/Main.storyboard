@@ -132,16 +132,63 @@
                     <navigationItem key="navigationItem" id="zbr-Ew-wc5"/>
                     <connections>
                         <segue destination="5Wf-9F-Lgg" kind="show" identifier="landingToLogin" id="BgK-cs-GJq"/>
+                        <segue destination="d9d-99-He0" kind="show" identifier="landingToRegister" id="xgk-nJ-7oi"/>
+                        <segue destination="ekR-St-8r9" kind="show" identifier="landingToTester" id="Ma8-9V-mKo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886.25954198473278" y="37.323943661971832"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
+        <scene sceneID="kCc-7V-qdm">
+            <objects>
+                <viewController id="d9d-99-He0" customClass="RegisterViewController" customModule="QShopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fw9-gA-NTP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xAE-2Y-gUf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RcC-NK-JOg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptl-RC-Rhy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="37"/>
+        </scene>
+        <!--Tester Register View Controller-->
+        <scene sceneID="0OO-JL-4Ix">
+            <objects>
+                <tableViewController id="ekR-St-8r9" customClass="TesterRegisterViewController" customModule="QShopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WyO-jA-fQA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nCe-RF-WYo">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nCe-RF-WYo" id="oiH-WY-imr">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ekR-St-8r9" id="em5-Ov-qm5"/>
+                            <outlet property="delegate" destination="ekR-St-8r9" id="HsH-DG-euz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mlD-Oc-qLr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxy-Vg-SVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="727"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="loO-b1-5vm">
             <objects>
-                <viewController id="5Wf-9F-Lgg" sceneMemberID="viewController">
+                <viewController id="5Wf-9F-Lgg" customClass="LoginViewController" customModule="QShopping" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QU3-Vp-Ovx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nT-u3-sCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750" y="-194"/>
+            <point key="canvasLocation" x="1743" y="-650"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UHq-lR-5xH">
