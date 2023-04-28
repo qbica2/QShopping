@@ -239,6 +239,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="mlD-Oc-qLr"/>
+                    <connections>
+                        <segue destination="5Wf-9F-Lgg" kind="show" identifier="testerToLogin" id="zWH-1P-MXN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxy-Vg-SVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,6 +458,9 @@
             <point key="canvasLocation" x="-40.458015267175568" y="37.323943661971832"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zWH-1P-MXN"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.badge.questionmark.rtl" catalog="system" width="128" height="103"/>
         <image name="lock.circle" catalog="system" width="128" height="123"/>
