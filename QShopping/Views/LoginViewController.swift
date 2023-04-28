@@ -16,6 +16,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
     
+    var selectedTester: User?{
+        didSet {
+            DispatchQueue.main.async {
+                self.usernameTextField.text = self.selectedTester?.username
+                self.passwordTextField.text = self.selectedTester?.password
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
