@@ -18,6 +18,9 @@
 		E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */; };
 		E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */; };
 		E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5984E29FAA16000CC1DED /* UserData.swift */; };
+		E0C5985229FAB20E00CC1DED /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985129FAB20E00CC1DED /* UserManager.swift */; };
+		E0C5985429FAB2AA00CC1DED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985329FAB2AA00CC1DED /* User.swift */; };
+		E0C5985729FB399300CC1DED /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985629FB399300CC1DED /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesterRegisterViewController.swift; sourceTree = "<group>"; };
 		E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E0C5984E29FAA16000CC1DED /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E0C5985129FAB20E00CC1DED /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E0C5985329FAB2AA00CC1DED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E0C5985629FB399300CC1DED /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				E0C5984D29FA95FC00CC1DED /* Models */,
-				E0C5984429FA7C2500CC1DED /* SupportingFiles */,
-				E0C5983329F92B0700CC1DED /* LandingViewController.swift */,
-				E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */,
-				E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */,
-				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
 				E0C5984329F959B700CC1DED /* Views */,
+				E0C5985029FAB1C200CC1DED /* Controllers */,
+				E0C5984429FA7C2500CC1DED /* SupportingFiles */,
 				E0C5982F29F92B0700CC1DED /* AppDelegate.swift */,
 				E0C5983129F92B0700CC1DED /* SceneDelegate.swift */,
 				E0C5983829F92B0800CC1DED /* Assets.xcassets */,
@@ -85,7 +88,12 @@
 		E0C5984329F959B700CC1DED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0C5985529FB397100CC1DED /* CustomCells */,
 				E0C5983529F92B0700CC1DED /* Main.storyboard */,
+				E0C5983329F92B0700CC1DED /* LandingViewController.swift */,
+				E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */,
+				E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */,
+				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,8 +110,25 @@
 			isa = PBXGroup;
 			children = (
 				E0C5984E29FAA16000CC1DED /* UserData.swift */,
+				E0C5985329FAB2AA00CC1DED /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E0C5985029FAB1C200CC1DED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0C5985129FAB20E00CC1DED /* UserManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E0C5985529FB397100CC1DED /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				E0C5985629FB399300CC1DED /* UserCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C5985229FAB20E00CC1DED /* UserManager.swift in Sources */,
 				E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
 				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
@@ -184,6 +210,8 @@
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
+				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
+				E0C5985729FB399300CC1DED /* UserCell.swift in Sources */,
 				E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
