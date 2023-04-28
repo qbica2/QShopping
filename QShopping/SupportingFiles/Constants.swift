@@ -12,6 +12,7 @@ struct K {
         static let landingToLogin = "landingToLogin"
         static let landingToRegister = "landingToRegister"
         static let landingToTester = "landingToTester"
+        static let testerToLogin = "testerToLogin"
     }
     struct cells {
         static let testerCell = "testerCell"
