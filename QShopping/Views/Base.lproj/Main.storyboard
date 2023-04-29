@@ -551,6 +551,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Register">
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="registerPressed:" destination="d9d-99-He0" eventType="touchUpInside" id="FDc-UZ-eBM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xAE-2Y-gUf"/>
@@ -615,15 +618,35 @@
                     </view>
                     <navigationItem key="navigationItem" id="RcC-NK-JOg"/>
                     <connections>
+                        <outlet property="cityError" destination="a6B-Vk-KNt" id="9ji-aP-vrE"/>
+                        <outlet property="cityText" destination="k6c-No-1dn" id="IzQ-PO-MTo"/>
                         <outlet property="cityView" destination="Ql0-e0-oBu" id="p5a-Ek-AP6"/>
+                        <outlet property="emailError" destination="dUh-Sx-tmd" id="pmv-Ac-bgR"/>
+                        <outlet property="emailText" destination="1hd-yn-9dp" id="ppf-qw-i1h"/>
                         <outlet property="emailView" destination="Wpi-Wo-onC" id="InX-dO-6xs"/>
+                        <outlet property="firstnameError" destination="jPT-rS-mBz" id="tEE-YC-hdJ"/>
+                        <outlet property="firstnameText" destination="AyU-k2-Xvi" id="PmH-ei-gsV"/>
                         <outlet property="firstnameView" destination="qkk-xC-r1G" id="AVX-p2-mCZ"/>
+                        <outlet property="lastnameError" destination="nG1-5f-jrO" id="EYg-S4-UpJ"/>
+                        <outlet property="lastnameText" destination="9dg-72-Ej7" id="Ku3-RD-ahj"/>
                         <outlet property="lastnameView" destination="dzx-DD-mBH" id="Da4-uc-4Ag"/>
+                        <outlet property="numberError" destination="pNT-Ue-htr" id="KyQ-LV-WA8"/>
+                        <outlet property="numberText" destination="ejZ-45-BZu" id="dcq-HJ-f09"/>
                         <outlet property="numberView" destination="fGe-Sn-cQh" id="mTP-eT-AZz"/>
+                        <outlet property="passwordError" destination="jWl-ov-Yrp" id="wgF-ch-ogN"/>
+                        <outlet property="passwordText" destination="gkp-d0-8bB" id="TDX-5J-RCE"/>
                         <outlet property="passwordView" destination="XT5-h2-eaD" id="xMD-ft-gV2"/>
+                        <outlet property="phoneError" destination="uRM-Av-Zo5" id="Jip-SY-zm8"/>
+                        <outlet property="phoneText" destination="9lf-je-Qga" id="Skx-xb-rlC"/>
                         <outlet property="phoneView" destination="ZwX-xP-x97" id="3hj-5u-23v"/>
+                        <outlet property="streetError" destination="0tb-bp-0Ie" id="dDy-3w-ywj"/>
+                        <outlet property="streetText" destination="tfa-6K-mbs" id="g1b-Ob-KoZ"/>
                         <outlet property="streetView" destination="8Lf-Mx-Kpt" id="kwN-Ef-vlI"/>
+                        <outlet property="usernameError" destination="dZx-Rh-ULZ" id="uBm-yb-yPk"/>
+                        <outlet property="usernameText" destination="lPY-qm-BTS" id="gcs-MF-3ic"/>
                         <outlet property="usernameView" destination="zfC-aC-1Yh" id="cGc-Vj-K2N"/>
+                        <outlet property="zipcodeError" destination="2Ok-Mh-Kje" id="KZA-uJ-Qe8"/>
+                        <outlet property="zipcodeText" destination="vbj-KO-dM4" id="CTP-Ue-aFP"/>
                         <outlet property="zipcodeView" destination="4FQ-54-L41" id="A3F-5d-2W2"/>
                     </connections>
                 </viewController>
