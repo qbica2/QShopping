@@ -21,6 +21,7 @@
 		E0C5985229FAB20E00CC1DED /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985129FAB20E00CC1DED /* UserManager.swift */; };
 		E0C5985429FAB2AA00CC1DED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985329FAB2AA00CC1DED /* User.swift */; };
 		E0C5985729FB399300CC1DED /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985629FB399300CC1DED /* UserCell.swift */; };
+		E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985829FD2AFE00CC1DED /* ValidationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E0C5985129FAB20E00CC1DED /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E0C5985329FAB2AA00CC1DED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E0C5985629FB399300CC1DED /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E0C5985829FD2AFE00CC1DED /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C5984529FA7C3A00CC1DED /* Constants.swift */,
+				E0C5985829FD2AFE00CC1DED /* ValidationHelper.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
 				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
+				E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */,
 				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,

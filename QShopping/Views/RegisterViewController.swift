@@ -57,6 +57,25 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func registerPressed(_ sender: UIButton) {
+       let isValid = formController()
         
     }
+    
+    private func formController() -> Bool {
+        var isFormValid = true
+        
+        isFormValid = ValidationHelper.validateField(firstnameText, errorLabel: firstnameError) && isFormValid
+        isFormValid = ValidationHelper.validateField(lastnameText, errorLabel: lastnameError) && isFormValid
+        isFormValid = ValidationHelper.validateField(emailText, errorLabel: emailError) && isFormValid
+        isFormValid = ValidationHelper.validateField(usernameText, errorLabel: usernameError) && isFormValid
+        isFormValid = ValidationHelper.validateField(passwordText, errorLabel: passwordError) && isFormValid
+        isFormValid = ValidationHelper.validateField(cityText, errorLabel: cityError) && isFormValid
+        isFormValid = ValidationHelper.validateField(streetText, errorLabel: streetError) && isFormValid
+        isFormValid = ValidationHelper.validateField(numberText, errorLabel: numberError) && isFormValid
+        isFormValid = ValidationHelper.validateField(zipcodeText, errorLabel: zipcodeError) && isFormValid
+        isFormValid = ValidationHelper.validateField(phoneText, errorLabel: phoneError) && isFormValid
+        
+        return isFormValid ? true : false
+    }
+
 }
