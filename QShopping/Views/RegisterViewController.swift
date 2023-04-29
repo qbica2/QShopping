@@ -51,6 +51,9 @@ class RegisterViewController: UIViewController {
         for view in [firstnameView, lastnameView, emailView, usernameView, passwordView, cityView, streetView, numberView, zipcodeView, phoneView] {
             view?.layer.cornerRadius = 12
         }
+        for x in [firstnameError, lastnameError, emailError, usernameError, passwordError, cityError, streetError, numberError, zipcodeError, phoneError] {
+            x?.isHidden = true
+        }
     }
 
     @IBAction func registerPressed(_ sender: UIButton) {
