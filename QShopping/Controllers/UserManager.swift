@@ -20,6 +20,7 @@ class UserManager {
                 completion(error)
             } else if let data = data {
                 let decoder = JSONDecoder()
+                self.users = []
                 do {
                     let decodedData = try decoder.decode([UserData].self, from: data)
                     
