@@ -46,6 +46,12 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        for view in [firstnameView, lastnameView, emailView, usernameView, passwordView, cityView, streetView, numberView, zipcodeView, phoneView] {
+            view?.layer.cornerRadius = 12
+        }
+    }
 
     @IBAction func registerPressed(_ sender: UIButton) {
         
