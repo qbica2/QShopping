@@ -654,6 +654,92 @@
             </objects>
             <point key="canvasLocation" x="1742.7480916030534" y="36.619718309859159"/>
         </scene>
+        <!--Cart-->
+        <scene sceneID="wSa-zP-U7E">
+            <objects>
+                <viewController id="x9y-tV-EfX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FS2-hE-EfM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GrT-6f-mjb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart.fill" catalog="system" selectedImage="cart.fill" id="vN8-yQ-ztq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ7-Vf-pt1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4415" y="-239"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Lnz-FM-4L8">
+            <objects>
+                <viewController id="zey-xu-dKv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cWu-fi-ayi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="n2I-3b-dYA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear.circle.fill" catalog="system" selectedImage="gear.circle.fill" id="fVY-Ic-U0D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j27-eC-ceI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5874" y="-161"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="Cij-vS-YBJ">
+            <objects>
+                <viewController id="hgi-S0-ETQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xdp-v9-yR5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FSq-aa-sgX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heart.fill" catalog="system" selectedImage="heart.fill" id="9gR-zm-OiP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="No1-vD-OMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5152" y="-142"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="OhE-VE-3XZ">
+            <objects>
+                <viewController id="wjC-PX-OFm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bB7-0f-9N7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kJ9-dz-5Th"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="cM2-ch-mnv"/>
+                    <size key="freeformSize" width="393" height="852"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08h-m1-wPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3624" y="-304"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oHf-oK-yXe">
+            <objects>
+                <tabBarController id="hC8-hN-7nl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9ES-ls-OrW"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QhD-St-LJk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wjC-PX-OFm" kind="relationship" relationship="viewControllers" id="eZ0-B0-NXj"/>
+                        <segue destination="x9y-tV-EfX" kind="relationship" relationship="viewControllers" id="tzm-DN-oHP"/>
+                        <segue destination="hgi-S0-ETQ" kind="relationship" relationship="viewControllers" id="BuA-Wg-Wcz"/>
+                        <segue destination="zey-xu-dKv" kind="relationship" relationship="viewControllers" id="5Kn-Wk-W9L"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Rj-3c-mpR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2766" y="37"/>
+        </scene>
         <!--Select Tester Account-->
         <scene sceneID="0OO-JL-4Ix">
             <objects>
@@ -929,6 +1015,7 @@
                         <outlet property="usernameErrorLabel" destination="qnL-vA-rAg" id="hee-61-yMd"/>
                         <outlet property="usernameTextField" destination="P91-Hh-dUF" id="kdi-t7-K0l"/>
                         <outlet property="usernameView" destination="ah1-7C-OPd" id="alB-Nc-ZkL"/>
+                        <segue destination="hC8-hN-7nl" kind="show" identifier="loginToHome" id="zhh-oW-Bv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nT-u3-sCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -959,7 +1046,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.badge.questionmark.rtl" catalog="system" width="128" height="103"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="faxmachine" catalog="system" width="128" height="111"/>
+        <image name="gear.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="lock" catalog="system" width="125" height="128"/>
@@ -971,7 +1061,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <namedColor name="landingBottom">
-            <color red="1" green="0.80750600158373809" blue="0.81602998948123728" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.94499999284744263" green="0.9649999737739563" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
