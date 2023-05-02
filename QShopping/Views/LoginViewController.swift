@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var authManager = AuthManager()
+    var alertManager = AlertManager()
 
     @IBOutlet weak var usernameView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -29,7 +30,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        alertManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +56,11 @@ class LoginViewController: UIViewController {
                 case .success(let token):
                     print(token)
                 case.failure(let error):
-                    print(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.cancel, isSecondButtonActive: false, secondButtonTitle: "Cancel", secondButtonStyle: UIAlertAction.Style.default, secondButtonHandler: nil)
+                        self.alertManager.show(alert: alert)
+                    }
+
                 }
             }
         }
@@ -76,5 +81,11 @@ class LoginViewController: UIViewController {
         isFormValid = ValidationHelper.validateField(passwordTextField, errorLabel: passwordErrorLabel) && isFormValid
         
         return isFormValid ? true : false
+    }
+}
+
+extension LoginViewController: AlertManagerDelegate {
+    func presentAlert(alertController: UIAlertController) {
+        self.present(alertController, animated: true)
     }
 }
