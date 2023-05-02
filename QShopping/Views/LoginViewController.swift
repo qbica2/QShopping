@@ -43,18 +43,24 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginPressed(_ sender: UIButton) {
         
-        guard let username = usernameTextField.text, let password = passwordTextField.text else {
-            return
-        }
+        let isFormValid = formController()
         
-        authManager.login(with: username, with: password) { result in
-            switch result {
-            case .success(let token):
-                print(token)
-            case.failure(let error):
-                print(error.localizedDescription)
+        if isFormValid {
+            guard let username = usernameTextField.text, let password = passwordTextField.text else {
+                return
+            }
+            
+            authManager.login(with: username, with: password) { result in
+                switch result {
+                case .success(let token):
+                    print(token)
+                case.failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+        
+
     }
     
     @IBAction func registerPressed(_ sender: UIButton) {
@@ -63,4 +69,12 @@ class LoginViewController: UIViewController {
     @IBAction func loginWithTestPressed(_ sender: Any) {
     }
     
+    private func formController() -> Bool {
+        var isFormValid = true
+        
+        isFormValid = ValidationHelper.validateField(usernameTextField, errorLabel: usernameErrorLabel) && isFormValid
+        isFormValid = ValidationHelper.validateField(passwordTextField, errorLabel: passwordErrorLabel) && isFormValid
+        
+        return isFormValid ? true : false
+    }
 }
