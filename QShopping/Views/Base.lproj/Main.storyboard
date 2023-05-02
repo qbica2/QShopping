@@ -782,7 +782,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="wmi-rp-Lwz"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
@@ -820,7 +819,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ev3-vP-3UC"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     </textField>
@@ -957,7 +955,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zWH-1P-MXN"/>
+        <segue reference="BgK-cs-GJq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart.badge.questionmark.rtl" catalog="system" width="128" height="103"/>

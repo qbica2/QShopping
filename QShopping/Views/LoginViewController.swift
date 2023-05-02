@@ -8,6 +8,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    var authManager = AuthManager()
 
     @IBOutlet weak var usernameView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -40,6 +42,19 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
+        
+        guard let username = usernameTextField.text, let password = passwordTextField.text else {
+            return
+        }
+        
+        authManager.login(with: username, with: password) { result in
+            switch result {
+            case .success(let token):
+                print(token)
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func registerPressed(_ sender: UIButton) {
