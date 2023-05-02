@@ -54,7 +54,9 @@ class LoginViewController: UIViewController {
             authManager.login(with: username, with: password) { result in
                 switch result {
                 case .success(let token):
-                    print(token)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "loginToHome", sender: nil)
+                    }
                 case.failure(let error):
                     DispatchQueue.main.async {
                         let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.cancel, isSecondButtonActive: false, secondButtonTitle: "Cancel", secondButtonStyle: UIAlertAction.Style.default, secondButtonHandler: nil)
