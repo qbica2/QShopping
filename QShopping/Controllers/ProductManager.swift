@@ -16,7 +16,8 @@ class ProductManager {
         var urlString = baseUrl
         
         if let categoryName = categoryName {
-            urlString += "/category/\(categoryName)"
+            let encodedCategoryName = categoryName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            urlString += "/category/\(encodedCategoryName)"
         }
         
         guard let url = URL(string: urlString) else {
