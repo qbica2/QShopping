@@ -20,7 +20,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         alertManager.delegate = self
-
+        setupStackViewInScrollView()
+        
         categoryManager.getCategories { result in
             switch result {
             case .success(let categories):
@@ -35,6 +36,21 @@ class HomeViewController: UIViewController {
             }
         }
         
+    }
+    
+    func setupStackViewInScrollView() {
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        categoriesScrollView.translatesAutoresizingMaskIntoConstraints = false
+        categoriesScrollView.addSubview(stackView)
+        
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.spacing = 10
+        
+        stackView.leadingAnchor.constraint(equalTo: categoriesScrollView.leadingAnchor, constant: 10).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: categoriesScrollView.trailingAnchor, constant: -10).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: categoriesScrollView.centerYAnchor).isActive = true
     }
     
 
