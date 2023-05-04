@@ -79,6 +79,12 @@ class HomeViewController: UIViewController {
     }
     
     @objc func categoryButtonTapped(_ sender: UIButton) {
+        
+        for case let button as UIButton in stackView.arrangedSubviews where button != sender {
+            button.isSelected = false
+        }
+        
+        sender.isSelected = !sender.isSelected
         if let title = sender.currentTitle {
             print(title)
         }
