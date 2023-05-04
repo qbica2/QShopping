@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
-    
+    var productManager = ProductManager()
     var categoryManager = CategoryManager()
     var alertManager = AlertManager()
     
@@ -17,10 +18,7 @@ class HomeViewController: UIViewController {
     let stackView = UIStackView()
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var images: [String] = ["cart","heart","phone","house"]
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +39,19 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
                     self.alertManager.show(alert: alert)
+                }
+            }
+        }
+        productManager.getProducts(in: nil) { error in
+            if let error {
+                DispatchQueue.main.async {
+                    let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
+                    self.alertManager.show(alert: alert)
+                }
+
+            } else {
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
                 }
             }
         }
@@ -112,17 +123,18 @@ extension HomeViewController: AlertManagerDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return productManager.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-        let item = images[indexPath.row]
-        cell.imageView.image = UIImage(systemName: item)
-        cell.titleLabel.text = item
-        cell.priceLabel.text = item
-        cell.rateLabel.text = item
-        cell.reviewLabel.text = "5 reviews"
+        let product = productManager.products[indexPath.row]
+        let url = URL(string: product.image)
+        cell.imageView.kf.setImage(with: url)
+        cell.titleLabel.text = product.title
+        cell.priceLabel.text = "$\(product.price)"
+        cell.rateLabel.text = String(product.rating.rate)
+        cell.reviewLabel.text = "\(product.rating.count) reviews"
         
         return cell
     }
@@ -140,7 +152,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: UICollectionViewDelegate {
     //Bu extension boş bırakılabilir.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = images[indexPath.row]
+        let item = productManager.products[indexPath.row]
         print(item)
     }
 }
