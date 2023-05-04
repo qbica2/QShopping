@@ -16,8 +16,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     let stackView = UIStackView()
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var images: [String] = ["cart","heart","phone","house"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         alertManager.delegate = self
         setupStackViewInScrollView()
@@ -85,7 +94,7 @@ class HomeViewController: UIViewController {
         }
         
         sender.isSelected = !sender.isSelected
-        if let title = sender.currentTitle {
+        if let title = sender.titleLabel?.text {
             print(title)
         }
     }
@@ -99,3 +108,40 @@ extension HomeViewController: AlertManagerDelegate {
         self.present(alertController, animated: true)
     }
 }
+//MARK: - UICollectionViewDataSource
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
+        let item = images[indexPath.row]
+        cell.imageView.image = UIImage(systemName: item)
+        cell.titleLabel.text = item
+        cell.priceLabel.text = item
+        cell.rateLabel.text = item
+        cell.reviewLabel.text = "5 reviews"
+        
+        return cell
+    }
+}
+//MARK: - UICollectionViewDelegateFlowLayout
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (collectionView.frame.size.width - 10 ) / 2
+        return CGSize(width: size, height: 400)
+    }
+}
+//MARK: - UICollectionViewDelegate
+
+extension HomeViewController: UICollectionViewDelegate {
+    //Bu extension boş bırakılabilir.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = images[indexPath.row]
+        print(item)
+    }
+}
+

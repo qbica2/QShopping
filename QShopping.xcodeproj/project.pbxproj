@@ -27,6 +27,7 @@
 		E0C5985729FB399300CC1DED /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985629FB399300CC1DED /* UserCell.swift */; };
 		E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985829FD2AFE00CC1DED /* ValidationHelper.swift */; };
 		E0C5985B29FE64A500CC1DED /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5985A29FE64A500CC1DED /* AuthManager.swift */; };
+		E0C61F392A03F2AE00EDCBBD /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F382A03F2AE00EDCBBD /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		E0C5985629FB399300CC1DED /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		E0C5985829FD2AFE00CC1DED /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		E0C5985A29FE64A500CC1DED /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		E0C61F382A03F2AE00EDCBBD /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C5985629FB399300CC1DED /* UserCell.swift */,
+				E0C61F382A03F2AE00EDCBBD /* ProductCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
 				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
+				E0C61F392A03F2AE00EDCBBD /* ProductCell.swift in Sources */,
 				E0C5985729FB399300CC1DED /* UserCell.swift in Sources */,
 				E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */,
 			);
