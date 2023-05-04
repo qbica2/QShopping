@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
     func createCategoryButtons(categories: [String]) {
         
         let allButton = createButton(title: "All")
+        allButton.isSelected = true
         stackView.addArrangedSubview(allButton)
         
         for category in categories {
@@ -65,13 +66,13 @@ class HomeViewController: UIViewController {
     }
     
     func createButton(title: String) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .systemGray4
-        button.layer.cornerRadius = 5
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        var config = UIButton.Configuration.gray()
+        config.title = title
+        config.buttonSize = .small
+        config.cornerStyle = .small
+        config.baseForegroundColor = .label
+        
+        let button = UIButton(configuration: config)
         button.addTarget(self, action: #selector(categoryButtonTapped(_:)), for: .touchUpInside)
         return button
         
