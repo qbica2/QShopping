@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
             switch result {
             case .success(let categories):
                 DispatchQueue.main.async {
-//                    self.createCategoryButtons(categories: categories)
+                    self.createCategoryButtons(categories: categories)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -53,9 +53,35 @@ class HomeViewController: UIViewController {
         stackView.centerYAnchor.constraint(equalTo: categoriesScrollView.centerYAnchor).isActive = true
     }
     
-
-
+    func createCategoryButtons(categories: [String]) {
+        
+        let allButton = createButton(title: "All")
+        stackView.addArrangedSubview(allButton)
+        
+        for category in categories {
+            let button = createButton(title: category)
+            stackView.addArrangedSubview(button)
+        }
+    }
     
+    func createButton(title: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .systemGray4
+        button.layer.cornerRadius = 5
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        button.addTarget(self, action: #selector(categoryButtonTapped(_:)), for: .touchUpInside)
+        return button
+        
+    }
+    
+    @objc func categoryButtonTapped(_ sender: UIButton) {
+        if let title = sender.currentTitle {
+            print(title)
+        }
+    }
 
     
 }

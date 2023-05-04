@@ -705,19 +705,37 @@
         <!--Home-->
         <scene sceneID="OhE-VE-3XZ">
             <objects>
-                <viewController id="wjC-PX-OFm" sceneMemberID="viewController">
+                <viewController id="wjC-PX-OFm" customClass="HomeViewController" customModule="QShopping" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bB7-0f-9N7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHy-4E-N9y">
+                                <rect key="frame" x="0.0" y="103" width="393" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="wzD-hn-1yN"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Vgu-1x-and"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="h0V-vS-gzQ"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kJ9-dz-5Th"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dHy-4E-N9y" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="HQk-zU-Den"/>
+                            <constraint firstItem="kJ9-dz-5Th" firstAttribute="trailing" secondItem="dHy-4E-N9y" secondAttribute="trailing" id="QI0-qq-T6U"/>
+                            <constraint firstItem="dHy-4E-N9y" firstAttribute="top" secondItem="kJ9-dz-5Th" secondAttribute="top" id="dFK-Rm-0sQ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="cM2-ch-mnv"/>
                     <size key="freeformSize" width="393" height="852"/>
+                    <connections>
+                        <outlet property="categoriesScrollView" destination="dHy-4E-N9y" id="aTy-ZD-guo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08h-m1-wPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3624" y="-304"/>
+            <point key="canvasLocation" x="3623.6641221374043" y="-304.22535211267609"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oHf-oK-yXe">

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E019E17E2A011E7F00FBBFAE /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E17D2A011E7F00FBBFAE /* Alert.swift */; };
 		E019E1802A011ED500FBBFAE /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E17F2A011ED500FBBFAE /* AlertManager.swift */; };
+		E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E1812A01673800FBBFAE /* HomeViewController.swift */; };
+		E019E1842A02735300FBBFAE /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E1832A02735300FBBFAE /* CategoryManager.swift */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		E019E17D2A011E7F00FBBFAE /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E019E17F2A011ED500FBBFAE /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		E019E1812A01673800FBBFAE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E019E1832A02735300FBBFAE /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				E0C5984B29FA7EBE00CC1DED /* LoginViewController.swift */,
 				E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */,
 				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
+				E019E1812A01673800FBBFAE /* HomeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				E0C5985129FAB20E00CC1DED /* UserManager.swift */,
 				E0C5985A29FE64A500CC1DED /* AuthManager.swift */,
 				E019E17F2A011ED500FBBFAE /* AlertManager.swift */,
+				E019E1832A02735300FBBFAE /* CategoryManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C5985229FAB20E00CC1DED /* UserManager.swift in Sources */,
+				E019E1842A02735300FBBFAE /* CategoryManager.swift in Sources */,
 				E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */,
 				E019E1802A011ED500FBBFAE /* AlertManager.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
@@ -225,6 +232,7 @@
 				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
+				E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
 				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
 				E0C5985729FB399300CC1DED /* UserCell.swift in Sources */,
