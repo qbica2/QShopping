@@ -156,6 +156,8 @@ extension HomeViewController: GettingMultipleProductsDelegate {
     func didSuccessGettingMultipleProducts() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
+            self.collectionView.setContentOffset(topOffset, animated: true)
         }
     }
     
