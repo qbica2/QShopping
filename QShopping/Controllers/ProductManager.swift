@@ -7,12 +7,17 @@
 
 import Foundation
 
+protocol GettingMultipleProductsDelegate {
+    func didSuccessGettingMultipleProducts(_ productManager: ProductManager, products: [ProductData])
+    func didFailGettingMultipleProducts(error: Error)
+}
 
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [ProductData] = []
+    var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     
-    func getProducts(in categoryName: String?, completion: @escaping (Error?) -> Void ){
+    func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
         
         if let categoryName = categoryName {
@@ -22,20 +27,20 @@ class ProductManager {
         
         guard let url = URL(string: urlString) else {
             let error = NSError(domain: "Invalid URL", code: 0, userInfo: nil)
-            completion(error)
+            gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
             return
         }
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
             if let error {
-                completion(error)
+                self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
                 return
             }
             
             guard let data = data else {
                 let error = NSError(domain: "No data returned", code: 0, userInfo: nil)
-                completion(error)
+                self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
                 return
             }
             
@@ -43,9 +48,10 @@ class ProductManager {
                 let decoder = JSONDecoder()
                 let products = try decoder.decode([ProductData].self, from: data)
                 self.products = products
-                completion(nil)
+                self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(self, products: self.products)
+                
             } catch {
-                completion(error)
+                self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
             }
         }
         task.resume()
