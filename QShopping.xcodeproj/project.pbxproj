@@ -32,6 +32,7 @@
 		E0C61F3D2A0409A700EDCBBD /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F3C2A0409A700EDCBBD /* ProductManager.swift */; };
 		E0C61F402A0426DA00EDCBBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E0C61F3F2A0426DA00EDCBBD /* Kingfisher */; };
 		E0C61F422A05207500EDCBBD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F412A05207500EDCBBD /* Product.swift */; };
+		E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		E0C61F3A2A04097100EDCBBD /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		E0C61F3C2A0409A700EDCBBD /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		E0C61F412A05207500EDCBBD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				E0C5984729FA7E1000CC1DED /* RegisterViewController.swift */,
 				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
 				E019E1812A01673800FBBFAE /* HomeViewController.swift */,
+				E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
 				E0C5985B29FE64A500CC1DED /* AuthManager.swift in Sources */,
 				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
+				E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */,
 				E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */,
 				E019E17E2A011E7F00FBBFAE /* Alert.swift in Sources */,
 				E0C61F3B2A04097100EDCBBD /* ProductData.swift in Sources */,

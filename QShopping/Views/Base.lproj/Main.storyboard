@@ -930,6 +930,9 @@
                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoritePressed:" destination="Hca-zv-V2o" eventType="touchUpInside" id="piP-A5-6bP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description v Description Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEz-wA-NmR">
                                 <rect key="frame" x="10" y="412" width="373" height="80"/>
@@ -982,6 +985,9 @@
                                         <subviews>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-h7-v7P">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="34"/>
+                                                <connections>
+                                                    <action selector="stepperPressed:" destination="Hca-zv-V2o" eventType="valueChanged" id="Q41-DA-rvZ"/>
+                                                </connections>
                                             </stepper>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LqJ-ea-72L">
                                                 <rect key="frame" x="131" y="0.0" width="37" height="34"/>
@@ -1012,6 +1018,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addProductButtonPressed:" destination="Hca-zv-V2o" eventType="touchUpInside" id="5Sk-LS-LZd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="94M-zr-Ztp"/>
@@ -1046,6 +1055,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lMq-26-b95"/>
+                    <connections>
+                        <outlet property="addProductButton" destination="a7d-vQ-09a" id="uCA-hA-XgB"/>
+                        <outlet property="countTextField" destination="LqJ-ea-72L" id="WOh-mP-YeS"/>
+                        <outlet property="descriptionLabel" destination="bEz-wA-NmR" id="zux-4n-Mgq"/>
+                        <outlet property="favoriteButton" destination="ih8-2D-84j" id="heI-6t-Xm4"/>
+                        <outlet property="imageView" destination="u2x-2m-0nj" id="3zu-wE-eT2"/>
+                        <outlet property="priceLabel" destination="KUm-WZ-iKK" id="S3k-jx-zSh"/>
+                        <outlet property="ratingLabel" destination="DI6-3r-Cd5" id="kPg-CO-eM5"/>
+                        <outlet property="reviewLabel" destination="cJ6-d3-IDj" id="4ry-EO-QZU"/>
+                        <outlet property="titleLabel" destination="oBC-35-QiU" id="edj-f3-9gB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioz-X6-XAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
