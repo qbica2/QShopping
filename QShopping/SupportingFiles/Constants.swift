@@ -13,9 +13,11 @@ struct K {
         static let landingToRegister = "landingToRegister"
         static let landingToTester = "landingToTester"
         static let testerToLogin = "testerToLogin"
+        static let loginToHome = "loginToHome"
     }
     struct cells {
         static let testerCell = "testerCell"
+        static let productCell = "productCell"
     }
     struct Alert {
         static let errorTitle = "Error!"
