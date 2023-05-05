@@ -123,12 +123,12 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
         let product = productManager.products[indexPath.row]
-        let url = URL(string: product.image)
+        let url = URL(string: product.imageURL)
         cell.imageView.kf.setImage(with: url)
         cell.titleLabel.text = product.title
         cell.priceLabel.text = "$\(product.price)"
-        cell.rateLabel.text = String(product.rating.rate)
-        cell.reviewLabel.text = "\(product.rating.count) reviews"
+        cell.rateLabel.text = String(product.rate)
+        cell.reviewLabel.text = "\(product.reviews) reviews"
         
         return cell
     }
@@ -153,7 +153,7 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - GettingMultipleProductsDelegate
 
 extension HomeViewController: GettingMultipleProductsDelegate {
-    func didSuccessGettingMultipleProducts(_ productManager: ProductManager, products: [ProductData]) {
+    func didSuccessGettingMultipleProducts() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
