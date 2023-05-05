@@ -33,4 +33,17 @@ struct AlertManager {
         delegate?.presentAlert(alertController: alertController)
         
     }
+    
+    func errorAlert(for error: Error) -> Alert {
+       return Alert(
+           title: K.Alert.errorTitle,
+           message: error.localizedDescription,
+           firstButtonTitle: K.Alert.defaultButtonTitle,
+           firstButtonStyle: .default,
+           isSecondButtonActive: false,
+           secondButtonTitle: K.Alert.cancelButtonTitle,
+           secondButtonStyle: .cancel,
+           secondButtonHandler: nil
+       )
+   }
 }
