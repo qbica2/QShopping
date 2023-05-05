@@ -17,4 +17,9 @@ struct K {
     struct cells {
         static let testerCell = "testerCell"
     }
+    struct Alert {
+        static let errorTitle = "Error!"
+        static let defaultButtonTitle = "OK"
+        static let cancelButtonTitle = "CANCEL"
+    }
 }
