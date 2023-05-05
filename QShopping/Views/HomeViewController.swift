@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
+                    let alert = self.alertManager.errorAlert(for: error)
                     self.alertManager.show(alert: alert)
                 }
             }
@@ -163,7 +163,7 @@ extension HomeViewController: GettingMultipleProductsDelegate {
     
     func didFailGettingMultipleProducts(error: Error) {
         DispatchQueue.main.async {
-            let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
+            let alert = self.alertManager.errorAlert(for: error)
             self.alertManager.show(alert: alert)
         }
     }
