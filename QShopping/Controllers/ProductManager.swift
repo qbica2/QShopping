@@ -8,13 +8,13 @@
 import Foundation
 
 protocol GettingMultipleProductsDelegate {
-    func didSuccessGettingMultipleProducts(_ productManager: ProductManager, products: [ProductData])
+    func didSuccessGettingMultipleProducts()
     func didFailGettingMultipleProducts(error: Error)
 }
 
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
-    var products: [ProductData] = []
+    var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
@@ -43,12 +43,16 @@ class ProductManager {
                 self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
                 return
             }
+            self.products = []
             
             do {
                 let decoder = JSONDecoder()
                 let products = try decoder.decode([ProductData].self, from: data)
-                self.products = products
-                self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(self, products: self.products)
+                for product in products {
+                    let newProduct = Product(id: product.id, title: product.title, price: product.price, description: product.description, category: product.category, imageURL: product.image, rate: product.rating.rate, reviews: product.rating.count)
+                    self.products.append(newProduct)
+                }
+                self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts()
                 
             } catch {
                 self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
