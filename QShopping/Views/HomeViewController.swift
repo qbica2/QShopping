@@ -26,7 +26,9 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
+        productManager.gettingMultipleProductsDelegate = self
         alertManager.delegate = self
+        
         setupStackViewInScrollView()
         
         categoryManager.getCategories { result in
@@ -42,20 +44,7 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-        productManager.getProducts(in: nil) { error in
-            if let error {
-                DispatchQueue.main.async {
-                    let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
-                    self.alertManager.show(alert: alert)
-                }
-
-            } else {
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-        }
-        
+        productManager.getProducts()
     }
     
     func setupStackViewInScrollView() {
@@ -105,8 +94,13 @@ class HomeViewController: UIViewController {
         }
         
         sender.isSelected = !sender.isSelected
+        
         if let title = sender.titleLabel?.text {
-            print(title)
+            if title == "All" {
+                productManager.getProducts()
+            } else {
+                productManager.getProducts(categoryName:title)
+            }
         }
     }
 
@@ -155,5 +149,22 @@ extension HomeViewController: UICollectionViewDelegate {
         let item = productManager.products[indexPath.row]
         print(item)
     }
+}
+//MARK: - GettingMultipleProductsDelegate
+
+extension HomeViewController: GettingMultipleProductsDelegate {
+    func didSuccessGettingMultipleProducts(_ productManager: ProductManager, products: [ProductData]) {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func didFailGettingMultipleProducts(error: Error) {
+        DispatchQueue.main.async {
+            let alert = Alert(title: "Error", message: error.localizedDescription, firstButtonTitle: "OK", firstButtonStyle: UIAlertAction.Style.default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: UIAlertAction.Style.cancel, secondButtonHandler: nil)
+            self.alertManager.show(alert: alert)
+        }
+    }
+    
 }
 
