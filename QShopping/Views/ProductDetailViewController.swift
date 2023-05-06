@@ -12,6 +12,11 @@ class ProductDetailViewController: UIViewController {
     
     var productManager = ProductManager()
     var alertManager = AlertManager()
+    var selectedProductID: Int? {
+        didSet{
+            productManager.getProduct(id: selectedProductID!)
+        }
+    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +34,6 @@ class ProductDetailViewController: UIViewController {
         productManager.gettingProductDetailDelegate = self
         alertManager.delegate = self
         
-        productManager.getProduct(id: 1)
     }
 
     @IBAction func favoritePressed(_ sender: UIButton) {
