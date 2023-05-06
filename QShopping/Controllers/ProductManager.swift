@@ -12,10 +12,16 @@ protocol GettingMultipleProductsDelegate {
     func didFailGettingMultipleProducts(error: Error)
 }
 
+protocol GettingProductDetailDelegate {
+    func didSuccessGettingProductDetail(product: Product)
+    func didFailGettingProductDetail(error: Error)
+}
+
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
+    var gettingProductDetailDelegate: GettingProductDetailDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -57,6 +63,43 @@ class ProductManager {
             } catch {
                 self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
             }
+        }
+        task.resume()
+    }
+    
+    func getProduct(id: Int) {
+        let urlString = "\(baseUrl)/\(id)"
+        
+        guard let url = URL(string: urlString) else {
+            let error = NSError(domain: "Invalid URL", code: 0, userInfo: nil)
+            gettingProductDetailDelegate?.didFailGettingProductDetail(error: error)
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            
+            if let error {
+                self.gettingProductDetailDelegate?.didFailGettingProductDetail(error: error)
+                return
+            }
+            
+            guard let data = data else {
+                let error = NSError(domain: "No data returned", code: 0, userInfo: nil)
+                self.gettingProductDetailDelegate?.didFailGettingProductDetail(error: error)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let productData = try decoder.decode(ProductData.self, from: data)
+                let product = Product(id: productData.id, title: productData.title, price: productData.price, description: productData.description, category: productData.category, imageURL: productData.image, rate: productData.rating.rate, reviews: productData.rating.count)
+                
+                self.gettingProductDetailDelegate?.didSuccessGettingProductDetail(product: product)
+            } catch {
+                self.gettingProductDetailDelegate?.didFailGettingProductDetail(error: error)
+            }
+            
         }
         task.resume()
     }
