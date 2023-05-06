@@ -144,12 +144,20 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDelegate
 
 extension HomeViewController: UICollectionViewDelegate {
-    //Bu extension boş bırakılabilir.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = productManager.products[indexPath.row]
-        print(item)
+        performSegue(withIdentifier: K.segues.homeToDetail, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segues.homeToDetail {
+            let destinationVC = segue.destination as! ProductDetailViewController
+            if let indexPath = collectionView.indexPathsForSelectedItems?.first{
+                destinationVC.selectedProductID = productManager.products[indexPath.row].id
+            }
+        }
     }
 }
+
 //MARK: - GettingMultipleProductsDelegate
 
 extension HomeViewController: GettingMultipleProductsDelegate {
