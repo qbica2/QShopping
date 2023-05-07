@@ -47,6 +47,9 @@ class HomeViewController: UIViewController {
             }
         }
         productManager.getProducts()
+        
+        editSortButtonMenu()
+        editFilterButtonMenu()
     }
     
     func addMenuToButton(button: UIButton, menuTitle: String, elements: [UIMenuElement]){
@@ -54,6 +57,60 @@ class HomeViewController: UIViewController {
         button.contentMode = .center
         button.menu = menu
         button.showsMenuAsPrimaryAction = true
+    }
+    
+    func editSortButtonMenu() {
+        
+        let sortByPriceLowToHigh = UIAction(title: "Price: Low to High") { _ in
+            // Fiyatı artan şekilde sırala
+        }
+        let sortByPriceHighToLow = UIAction(title: "Price: High to Low") { _ in
+            // Fiyatı azalan şekilde sırala
+        }
+        let sortByRating = UIAction(title: "Most Rated") { _ in
+            // En çok değerlendirilenlere göre sırala
+        }
+        
+        let sortByReviews = UIAction(title: "Most Reviewed") { _ in
+//            sdfsd
+        }
+        
+        let elements = [sortByPriceLowToHigh, sortByPriceHighToLow, sortByRating, sortByReviews]
+        addMenuToButton(button: sortButton, menuTitle: "Sort Options", elements: elements)
+        
+    }
+    
+    func editFilterButtonMenu(){
+        
+        let starImage = UIImage(systemName: "star.fill")
+        let dolarImage = UIImage(systemName: "dollarsign.circle")
+        
+        let filterFourStars = UIAction(title: "4+", image: starImage ) { _ in
+            // Fiyatı artan şekilde sırala
+        }
+        
+        let filterThreeStars = UIAction(title: "3+", image: starImage ) { _ in
+            // Fiyatı artan şekilde sırala
+        }
+        
+        let filterTwoStars = UIAction(title: "2+", image: starImage ) { _ in
+            // Fiyatı artan şekilde sırala
+        }
+        
+        let filterByPrice1000 = UIAction(title: "1000+", image: dolarImage) { _ in
+            
+        }
+        
+        let filterByPrice500 = UIAction(title: "500+", image: dolarImage) { _ in
+        
+        }
+        
+        let filterByPrice100 = UIAction(title: "100+", image: dolarImage) { _ in
+            
+        }
+
+        let elements = [filterFourStars, filterThreeStars, filterTwoStars, filterByPrice1000, filterByPrice500, filterByPrice100]
+        addMenuToButton(button: filterButton, menuTitle: "Filter Options", elements: elements)
     }
     
     func setupStackViewInScrollView() {
