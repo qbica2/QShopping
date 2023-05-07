@@ -13,12 +13,14 @@ class HomeViewController: UIViewController {
     var productManager = ProductManager()
     var categoryManager = CategoryManager()
     var alertManager = AlertManager()
-    
-    @IBOutlet weak var categoriesScrollView: UIScrollView!
     let stackView = UIStackView()
-    
+
+    @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
-        
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +47,13 @@ class HomeViewController: UIViewController {
             }
         }
         productManager.getProducts()
+    }
+    
+    func addMenuToButton(button: UIButton, menuTitle: String, elements: [UIMenuElement]){
+        let menu = UIMenu(title: menuTitle, children: elements)
+        button.contentMode = .center
+        button.menu = menu
+        button.showsMenuAsPrimaryAction = true
     }
     
     func setupStackViewInScrollView() {
