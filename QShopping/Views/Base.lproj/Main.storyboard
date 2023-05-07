@@ -669,7 +669,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ7-Vf-pt1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4415" y="-239"/>
+            <point key="canvasLocation" x="4277" y="37"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Lnz-FM-4L8">
@@ -685,7 +685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j27-eC-ceI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5874" y="-161"/>
+            <point key="canvasLocation" x="4276" y="1427"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="Cij-vS-YBJ">
@@ -701,9 +701,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="No1-vD-OMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5152" y="-142"/>
+            <point key="canvasLocation" x="4277" y="727"/>
         </scene>
-        <!--Home-->
+        <!--Qshopping-->
         <scene sceneID="OhE-VE-3XZ">
             <objects>
                 <viewController id="wjC-PX-OFm" customClass="HomeViewController" customModule="QShopping" customModuleProvider="target" sceneMemberID="viewController">
@@ -711,16 +711,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHy-4E-N9y">
-                                <rect key="frame" x="0.0" y="103" width="393" height="60"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wYD-iH-lLG">
+                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="wzD-hn-1yN"/>
+                                    <constraint firstAttribute="height" constant="44" id="kCC-Ol-kQS"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Vgu-1x-and"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="h0V-vS-gzQ"/>
-                            </scrollView>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wjC-PX-OFm" id="1gU-ZL-rdX"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-CZ-2cv">
-                                <rect key="frame" x="0.0" y="163" width="393" height="606"/>
+                                <rect key="frame" x="0.0" y="207" width="393" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nV1-k9-ej0">
                                     <size key="itemSize" width="350" height="400"/>
@@ -851,30 +853,62 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHy-4E-N9y">
+                                <rect key="frame" x="0.0" y="151" width="393" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="wzD-hn-1yN"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Vgu-1x-and"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="h0V-vS-gzQ"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kJ9-dz-5Th"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Mb1-CZ-2cv" firstAttribute="top" secondItem="dHy-4E-N9y" secondAttribute="bottom" id="2GU-Cs-1gK"/>
-                            <constraint firstItem="dHy-4E-N9y" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="HQk-zU-Den"/>
-                            <constraint firstItem="kJ9-dz-5Th" firstAttribute="trailing" secondItem="dHy-4E-N9y" secondAttribute="trailing" id="QI0-qq-T6U"/>
-                            <constraint firstItem="dHy-4E-N9y" firstAttribute="top" secondItem="kJ9-dz-5Th" secondAttribute="top" id="dFK-Rm-0sQ"/>
-                            <constraint firstItem="kJ9-dz-5Th" firstAttribute="trailing" secondItem="Mb1-CZ-2cv" secondAttribute="trailing" id="hwP-Vs-FfN"/>
-                            <constraint firstItem="Mb1-CZ-2cv" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="pgV-1T-nt1"/>
-                            <constraint firstItem="kJ9-dz-5Th" firstAttribute="bottom" secondItem="Mb1-CZ-2cv" secondAttribute="bottom" id="yD1-cG-XL0"/>
+                            <constraint firstItem="wYD-iH-lLG" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="1OI-bj-xN0"/>
+                            <constraint firstItem="wYD-iH-lLG" firstAttribute="top" secondItem="kJ9-dz-5Th" secondAttribute="top" id="3Pp-Lz-4eN"/>
+                            <constraint firstAttribute="bottom" secondItem="Mb1-CZ-2cv" secondAttribute="bottom" id="64W-qD-7K1"/>
+                            <constraint firstItem="wYD-iH-lLG" firstAttribute="trailing" secondItem="kJ9-dz-5Th" secondAttribute="trailing" id="Qoh-ft-AVO"/>
+                            <constraint firstItem="dHy-4E-N9y" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="WTB-dA-JDE"/>
+                            <constraint firstItem="Mb1-CZ-2cv" firstAttribute="leading" secondItem="kJ9-dz-5Th" secondAttribute="leading" id="b3Q-LI-exe"/>
+                            <constraint firstItem="dHy-4E-N9y" firstAttribute="top" secondItem="wYD-iH-lLG" secondAttribute="bottom" id="o6o-U8-qq1"/>
+                            <constraint firstItem="Mb1-CZ-2cv" firstAttribute="trailing" secondItem="kJ9-dz-5Th" secondAttribute="trailing" id="qMf-fl-erC"/>
+                            <constraint firstItem="Mb1-CZ-2cv" firstAttribute="top" secondItem="dHy-4E-N9y" secondAttribute="bottom" id="tu2-Pr-NH6"/>
+                            <constraint firstItem="dHy-4E-N9y" firstAttribute="trailing" secondItem="kJ9-dz-5Th" secondAttribute="trailing" id="zR4-P7-Fip"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="cM2-ch-mnv"/>
-                    <size key="freeformSize" width="393" height="852"/>
+                    <navigationItem key="navigationItem" title="Qshopping" id="NHK-Bj-V34">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" style="done" id="vzQ-fj-2SH">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Kmq-Sl-Mme">
+                                    <rect key="frame" x="347" y="9.3333333333333339" width="30" height="25.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="arrow.up.arrow.down" catalog="system"/>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Item" style="done" id="CSP-5G-dvk">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p55-f1-UuB">
+                                    <rect key="frame" x="313.33333333333331" y="9.3333333333333339" width="25.666666666666686" height="25.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="ellipsis.circle" catalog="system"/>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoriesScrollView" destination="dHy-4E-N9y" id="aTy-ZD-guo"/>
                         <outlet property="collectionView" destination="Mb1-CZ-2cv" id="xWg-2d-8zX"/>
+                        <outlet property="filterButton" destination="p55-f1-UuB" id="8HN-DR-iXz"/>
+                        <outlet property="searchBar" destination="wYD-iH-lLG" id="Eol-tl-dix"/>
+                        <outlet property="sortButton" destination="Kmq-Sl-Mme" id="ANv-p0-NSs"/>
                         <segue destination="Hca-zv-V2o" kind="show" identifier="toDetailVC" id="vSg-kK-039"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08h-m1-wPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623.6641221374043" y="-304.22535211267609"/>
+            <point key="canvasLocation" x="4278.6259541984728" y="-659.15492957746483"/>
         </scene>
         <!--Qshopping-->
         <scene sceneID="oHf-oK-yXe">
@@ -884,10 +918,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QhD-St-LJk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wjC-PX-OFm" kind="relationship" relationship="viewControllers" id="eZ0-B0-NXj"/>
+                        <segue destination="CvT-WR-rRc" kind="relationship" relationship="viewControllers" id="eZ0-B0-NXj"/>
                         <segue destination="x9y-tV-EfX" kind="relationship" relationship="viewControllers" id="tzm-DN-oHP"/>
                         <segue destination="hgi-S0-ETQ" kind="relationship" relationship="viewControllers" id="BuA-Wg-Wcz"/>
                         <segue destination="zey-xu-dKv" kind="relationship" relationship="viewControllers" id="5Kn-Wk-W9L"/>
@@ -895,7 +929,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rj-3c-mpR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2766" y="37"/>
+            <point key="canvasLocation" x="2854" y="192"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="I8e-5M-dsQ">
@@ -1069,7 +1103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioz-X6-XAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623.6641221374043" y="450"/>
+            <point key="canvasLocation" x="5139.6946564885493" y="-659.15492957746483"/>
         </scene>
         <!--Select Tester Account-->
         <scene sceneID="0OO-JL-4Ix">
@@ -1346,7 +1380,7 @@
                         <outlet property="usernameErrorLabel" destination="qnL-vA-rAg" id="hee-61-yMd"/>
                         <outlet property="usernameTextField" destination="P91-Hh-dUF" id="kdi-t7-K0l"/>
                         <outlet property="usernameView" destination="ah1-7C-OPd" id="alB-Nc-ZkL"/>
-                        <segue destination="hC8-hN-7nl" kind="show" identifier="loginToHome" id="zhh-oW-Bv3"/>
+                        <segue destination="hC8-hN-7nl" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" id="zhh-oW-Bv3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nT-u3-sCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1371,15 +1405,36 @@
             </objects>
             <point key="canvasLocation" x="-40.458015267175568" y="37.323943661971832"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="SPa-7u-bxr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CvT-WR-rRc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="cM2-ch-mnv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFx-VF-98a">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wjC-PX-OFm" kind="relationship" relationship="rootViewController" id="Jxf-SB-xKO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5P-1y-fyf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3351.9083969465646" y="-659.15492957746483"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BgK-cs-GJq"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="97"/>
         <image name="cart.badge.plus" catalog="system" width="128" height="103"/>
         <image name="cart.badge.questionmark.rtl" catalog="system" width="128" height="103"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="cart.fill.badge.plus" catalog="system" width="128" height="105"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="faxmachine" catalog="system" width="128" height="111"/>
         <image name="gear.circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
@@ -1424,6 +1479,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
