@@ -30,7 +30,8 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         productManager.gettingMultipleProductsDelegate = self
-        productManager.sortOrFilterProductsDelegate = self
+        productManager.sortProductsDelegate = self
+        productManager.filterProductsDelegate = self
         alertManager.delegate = self
         
         setupStackViewInScrollView()
@@ -51,7 +52,7 @@ class HomeViewController: UIViewController {
         productManager.getProducts()
         
         editSortButtonMenu()
-//        editFilterButtonMenu()
+        editFilterButtonMenu()
     }
     
     func editSortButtonMenu() {
@@ -63,17 +64,17 @@ class HomeViewController: UIViewController {
         let reviewImage = UIImage(systemName: "text.bubble")
 
         let sortByPriceLowToHigh = UIAction(title: "Price: Low to High", image: upArrowImage) { _ in
-            self.productManager.sortProducts(criteria: .priceAscending)
+            self.productManager.sortProducts(products: self.listedProducts, criteria: .priceAscending)
         }
         let sortByPriceHighToLow = UIAction(title: "Price: High to Low", image: downArrowImage) { _ in
-            self.productManager.sortProducts(criteria: .priceDescending)
+            self.productManager.sortProducts(products: self.listedProducts, criteria: .priceDescending)
         }
         let sortByRating = UIAction(title: "Most Rated", image: starImage) { _ in
-            self.productManager.sortProducts(criteria: .rating)
+            self.productManager.sortProducts(products: self.listedProducts, criteria: .rating)
         }
         
         let sortByReviews = UIAction(title: "Most Reviewed", image: reviewImage) { _ in
-            self.productManager.sortProducts(criteria: .reviews)
+            self.productManager.sortProducts(products: self.listedProducts, criteria: .reviews)
         }
         
         let priceMenu = UIMenu(title: "Sort By Price",image: dollarImage, children: [sortByPriceLowToHigh,sortByPriceHighToLow])
@@ -91,28 +92,44 @@ class HomeViewController: UIViewController {
         let dolarImage = UIImage(systemName: "dollarsign.circle")
         
         let filterFourStars = UIAction(title: "4+", image: starImage ) { _ in
-            // Fiyatı artan şekilde sırala
+            let filterCriteria = FilterCriteria(minRating: 4)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
         
         let filterThreeStars = UIAction(title: "3+", image: starImage ) { _ in
-            // Fiyatı artan şekilde sırala
+            let filterCriteria = FilterCriteria(minRating: 3)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
         
         let filterTwoStars = UIAction(title: "2+", image: starImage ) { _ in
-            // Fiyatı artan şekilde sırala
+            let filterCriteria = FilterCriteria(minRating: 2)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
         
         let filterByPrice1000 = UIAction(title: "1000+", image: dolarImage) { _ in
-            
+            let filterCriteria = FilterCriteria(minPrice: 1000)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
         
         let filterByPrice500 = UIAction(title: "500+", image: dolarImage) { _ in
-        
+            let filterCriteria = FilterCriteria(minPrice: 500)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
         
         let filterByPrice100 = UIAction(title: "100+", image: dolarImage) { _ in
-            
+            let filterCriteria = FilterCriteria(minPrice: 100)
+            self.productManager.filterProducts(criteria: filterCriteria)
         }
+        
+        let rateMenu = UIMenu(title: "Filter by Rate", image: starImage, children: [filterFourStars, filterThreeStars, filterTwoStars])
+        
+        let priceMenu = UIMenu(title: "Filter by Price", image: dolarImage, children: [filterByPrice1000, filterByPrice500, filterByPrice100])
+        
+        let filterMenu = UIMenu(title: "Filter Options", children: [rateMenu, priceMenu])
+        
+        filterButton.contentMode = .center
+        filterButton.menu = filterMenu
+        filterButton.showsMenuAsPrimaryAction = true
 
     }
     
@@ -249,11 +266,22 @@ extension HomeViewController: GettingMultipleProductsDelegate {
     }
     
 }
-//MARK: - SortOrFilterProductsDelegate
+//MARK: - SortProductsDelegate
 
-extension HomeViewController: SortOrFilterProductsDelegate {
-    func didSuccessSortingOrFiltering(sortedProducts: [Product]) {
+extension HomeViewController: SortProductsDelegate {
+    func didSuccessSortingProducts(sortedProducts: [Product]) {
         listedProducts = sortedProducts
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+}
+//MARK: - FilterProductsDelegate
+
+extension HomeViewController: FilterProductsDelegate {
+    func didSuccessFilteringProducts(filteredProducts: [Product]) {
+        listedProducts = filteredProducts
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
