@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         productManager.gettingMultipleProductsDelegate = self
-        productManager.sortProductsDelegate = self
-        productManager.filterProductsDelegate = self
         alertManager.delegate = self
         
         setupStackViewInScrollView()
@@ -248,9 +246,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: GettingMultipleProductsDelegate {
     func didSuccessGettingMultipleProducts(products: [Product]) {
-        for product in products {
-            self.listedProducts.append(product)
-        }
+        listedProducts = products
         DispatchQueue.main.async {
             self.collectionView.reloadData()
             let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
@@ -266,25 +262,3 @@ extension HomeViewController: GettingMultipleProductsDelegate {
     }
     
 }
-//MARK: - SortProductsDelegate
-
-extension HomeViewController: SortProductsDelegate {
-    func didSuccessSortingProducts(sortedProducts: [Product]) {
-        listedProducts = sortedProducts
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-}
-//MARK: - FilterProductsDelegate
-
-extension HomeViewController: FilterProductsDelegate {
-    func didSuccessFilteringProducts(filteredProducts: [Product]) {
-        listedProducts = filteredProducts
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-}
-

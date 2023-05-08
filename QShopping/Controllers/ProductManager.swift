@@ -17,21 +17,11 @@ protocol GettingProductDetailDelegate {
     func didFailGettingProductDetail(error: Error)
 }
 
-protocol SortProductsDelegate {
-    func didSuccessSortingProducts(sortedProducts: [Product])
-}
-
-protocol FilterProductsDelegate {
-    func didSuccessFilteringProducts(filteredProducts: [Product])
-}
-
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     var gettingProductDetailDelegate: GettingProductDetailDelegate?
-    var sortProductsDelegate: SortProductsDelegate?
-    var filterProductsDelegate: FilterProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -128,8 +118,8 @@ class ProductManager {
         case .reviews:
             listedProducts.sort { $0.reviews > $1.reviews }
         }
-        sortProductsDelegate?.didSuccessSortingProducts(sortedProducts: listedProducts)
         
+        gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: listedProducts)
     }
     
     func filterProducts(criteria: FilterCriteria) {
@@ -143,6 +133,6 @@ class ProductManager {
             filteredProducts = filteredProducts.filter { $0.price >= minPrice }
         }
         
-        filterProductsDelegate?.didSuccessFilteringProducts(filteredProducts: filteredProducts)
+        gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: filteredProducts)
     }
 }
