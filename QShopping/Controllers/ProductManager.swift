@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GettingMultipleProductsDelegate {
-    func didSuccessGettingMultipleProducts()
+    func didSuccessGettingMultipleProducts(products: [Product])
     func didFailGettingMultipleProducts(error: Error)
 }
 
@@ -62,7 +62,7 @@ class ProductManager {
                     let newProduct = Product(id: product.id, title: product.title, price: product.price, description: product.description, category: product.category, imageURL: product.image, rate: product.rating.rate, reviews: product.rating.count)
                     self.products.append(newProduct)
                 }
-                self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts()
+                self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: self.products)
                 
             } catch {
                 self.gettingMultipleProductsDelegate?.didFailGettingMultipleProducts(error: error)
