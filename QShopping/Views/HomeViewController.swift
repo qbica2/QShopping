@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         productManager.gettingMultipleProductsDelegate = self
+        productManager.sortOrFilterProductsDelegate = self
         alertManager.delegate = self
         
         setupStackViewInScrollView()
@@ -49,34 +50,37 @@ class HomeViewController: UIViewController {
         productManager.getProducts()
         
         editSortButtonMenu()
-        editFilterButtonMenu()
-    }
-    
-    func addMenuToButton(button: UIButton, menuTitle: String, elements: [UIMenuElement]){
-        let menu = UIMenu(title: menuTitle, children: elements)
-        button.contentMode = .center
-        button.menu = menu
-        button.showsMenuAsPrimaryAction = true
+//        editFilterButtonMenu()
     }
     
     func editSortButtonMenu() {
         
-        let sortByPriceLowToHigh = UIAction(title: "Price: Low to High") { _ in
-            // Fiyatı artan şekilde sırala
+        let dollarImage = UIImage(systemName: "dollarsign.circle")
+        let upArrowImage = UIImage(systemName: "arrow.up")
+        let downArrowImage = UIImage(systemName: "arrow.down")
+        let starImage = UIImage(systemName: "star.fill")
+        let reviewImage = UIImage(systemName: "text.bubble")
+
+        let sortByPriceLowToHigh = UIAction(title: "Price: Low to High", image: upArrowImage) { _ in
+            self.productManager.sortProductsByPriceAscending()
         }
-        let sortByPriceHighToLow = UIAction(title: "Price: High to Low") { _ in
-            // Fiyatı azalan şekilde sırala
+        let sortByPriceHighToLow = UIAction(title: "Price: High to Low", image: downArrowImage) { _ in
+            self.productManager.sortProductsByPriceDescending()
         }
-        let sortByRating = UIAction(title: "Most Rated") { _ in
-            // En çok değerlendirilenlere göre sırala
+        let sortByRating = UIAction(title: "Most Rated", image: starImage) { _ in
+            self.productManager.sortProductsByRating()
         }
         
-        let sortByReviews = UIAction(title: "Most Reviewed") { _ in
-//            sdfsd
+        let sortByReviews = UIAction(title: "Most Reviewed", image: reviewImage) { _ in
+            self.productManager.sortProductsByReviews()
         }
         
-        let elements = [sortByPriceLowToHigh, sortByPriceHighToLow, sortByRating, sortByReviews]
-        addMenuToButton(button: sortButton, menuTitle: "Sort Options", elements: elements)
+        let priceMenu = UIMenu(title: "Sort By Price",image: dollarImage, children: [sortByPriceLowToHigh,sortByPriceHighToLow])
+        let menu = UIMenu(title: "Sort Options", children: [priceMenu,sortByRating,sortByReviews])
+        
+        sortButton.contentMode = .center
+        sortButton.menu = menu
+        sortButton.showsMenuAsPrimaryAction = true
         
     }
     
@@ -109,8 +113,6 @@ class HomeViewController: UIViewController {
             
         }
 
-        let elements = [filterFourStars, filterThreeStars, filterTwoStars, filterByPrice1000, filterByPrice500, filterByPrice100]
-        addMenuToButton(button: filterButton, menuTitle: "Filter Options", elements: elements)
     }
     
     func setupStackViewInScrollView() {
@@ -242,5 +244,14 @@ extension HomeViewController: GettingMultipleProductsDelegate {
         }
     }
     
+}
+//MARK: - SortOrFilterProductsDelegate
+
+extension HomeViewController: SortOrFilterProductsDelegate {
+    func didSuccessSortingOrFiltering() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
