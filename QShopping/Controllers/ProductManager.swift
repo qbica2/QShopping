@@ -112,5 +112,10 @@ class ProductManager {
         products.sort { $0.price < $1.price }
         sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
     }
+    
+    func sortProductsByPriceDescending() {
+        products.sort { $0.price > $1.price }
+        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
+    }
 
 }
