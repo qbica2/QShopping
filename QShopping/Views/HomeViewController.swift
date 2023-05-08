@@ -63,17 +63,17 @@ class HomeViewController: UIViewController {
         let reviewImage = UIImage(systemName: "text.bubble")
 
         let sortByPriceLowToHigh = UIAction(title: "Price: Low to High", image: upArrowImage) { _ in
-            self.productManager.sortProductsByPriceAscending()
+            self.productManager.sortProducts(criteria: .priceAscending)
         }
         let sortByPriceHighToLow = UIAction(title: "Price: High to Low", image: downArrowImage) { _ in
-            self.productManager.sortProductsByPriceDescending()
+            self.productManager.sortProducts(criteria: .priceDescending)
         }
         let sortByRating = UIAction(title: "Most Rated", image: starImage) { _ in
-            self.productManager.sortProductsByRating()
+            self.productManager.sortProducts(criteria: .rating)
         }
         
         let sortByReviews = UIAction(title: "Most Reviewed", image: reviewImage) { _ in
-            self.productManager.sortProductsByReviews()
+            self.productManager.sortProducts(criteria: .reviews)
         }
         
         let priceMenu = UIMenu(title: "Sort By Price",image: dollarImage, children: [sortByPriceLowToHigh,sortByPriceHighToLow])
@@ -252,7 +252,8 @@ extension HomeViewController: GettingMultipleProductsDelegate {
 //MARK: - SortOrFilterProductsDelegate
 
 extension HomeViewController: SortOrFilterProductsDelegate {
-    func didSuccessSortingOrFiltering() {
+    func didSuccessSortingOrFiltering(sortedProducts: [Product]) {
+        listedProducts = sortedProducts
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
