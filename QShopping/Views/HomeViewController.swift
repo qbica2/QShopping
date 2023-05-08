@@ -10,6 +10,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
+    var listedProducts: [Product] = []
     var productManager = ProductManager()
     var categoryManager = CategoryManager()
     var alertManager = AlertManager()
@@ -185,12 +186,12 @@ extension HomeViewController: AlertManagerDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productManager.products.count
+        return listedProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-        let product = productManager.products[indexPath.row]
+        let product = listedProducts[indexPath.row]
         let url = URL(string: product.imageURL)
         cell.imageView.kf.setImage(with: url)
         cell.titleLabel.text = product.title
@@ -220,7 +221,7 @@ extension HomeViewController: UICollectionViewDelegate {
         if segue.identifier == K.segues.homeToDetail {
             let destinationVC = segue.destination as! ProductDetailViewController
             if let indexPath = collectionView.indexPathsForSelectedItems?.first{
-                destinationVC.selectedProductID = productManager.products[indexPath.row].id
+                destinationVC.selectedProductID = listedProducts[indexPath.row].id
             }
         }
     }
@@ -229,7 +230,10 @@ extension HomeViewController: UICollectionViewDelegate {
 //MARK: - GettingMultipleProductsDelegate
 
 extension HomeViewController: GettingMultipleProductsDelegate {
-    func didSuccessGettingMultipleProducts() {
+    func didSuccessGettingMultipleProducts(products: [Product]) {
+        for product in products {
+            self.listedProducts.append(product)
+        }
         DispatchQueue.main.async {
             self.collectionView.reloadData()
             let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
