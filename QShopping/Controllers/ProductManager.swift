@@ -17,7 +17,7 @@ protocol GettingProductDetailDelegate {
     func didFailGettingProductDetail(error: Error)
 }
 protocol SortOrFilterProductsDelegate {
-    func didSuccessSortingOrFiltering()
+    func didSuccessSortingOrFiltering(sortedProducts: [Product])
 }
 
 class ProductManager {
@@ -108,23 +108,19 @@ class ProductManager {
         task.resume()
     }
     
-    func sortProductsByPriceAscending() {
-        products.sort { $0.price < $1.price }
-        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
-    }
-    
-    func sortProductsByPriceDescending() {
-        products.sort { $0.price > $1.price }
-        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
-    }
-    
-    func sortProductsByRating() {
-        products.sort { $0.rate > $1.rate }
-        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
-    }
-    
-    func sortProductsByReviews() {
-        products.sort { $0.reviews > $1.reviews }
-        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
+    func sortProducts(criteria: SortingCriteria) {
+        var filteredProducts = products
+        
+        switch criteria {
+        case .priceAscending:
+            filteredProducts.sort { $0.price < $1.price }
+        case .priceDescending:
+            filteredProducts.sort { $0.price > $1.price }
+        case .rating:
+            filteredProducts.sort { $0.rate > $1.rate }
+        case .reviews:
+            filteredProducts.sort { $0.reviews > $1.reviews }
+        }
+        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering(sortedProducts: filteredProducts)
     }
 }
