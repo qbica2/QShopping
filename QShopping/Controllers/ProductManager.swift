@@ -16,12 +16,16 @@ protocol GettingProductDetailDelegate {
     func didSuccessGettingProductDetail(product: Product)
     func didFailGettingProductDetail(error: Error)
 }
+protocol SortOrFilterProductsDelegate {
+    func didSuccessSortingOrFiltering()
+}
 
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     var gettingProductDetailDelegate: GettingProductDetailDelegate?
+    var sortOrFilterProductsDelegate: SortOrFilterProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -103,4 +107,10 @@ class ProductManager {
         }
         task.resume()
     }
+    
+    func sortProductsByPriceAscending() {
+        products.sort { $0.price < $1.price }
+        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering()
+    }
+
 }
