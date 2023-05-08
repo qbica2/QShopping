@@ -171,6 +171,15 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func resetFilterPressed(_ sender: UIButton) {
+        listedProducts = productManager.products
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
+            self.collectionView.setContentOffset(topOffset, animated: true)
+        }
+    }
+    
     @objc func categoryButtonTapped(_ sender: UIButton) {
         
         for case let button as UIButton in stackView.arrangedSubviews where button != sender {
