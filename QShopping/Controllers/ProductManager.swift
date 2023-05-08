@@ -16,8 +16,13 @@ protocol GettingProductDetailDelegate {
     func didSuccessGettingProductDetail(product: Product)
     func didFailGettingProductDetail(error: Error)
 }
-protocol SortOrFilterProductsDelegate {
-    func didSuccessSortingOrFiltering(sortedProducts: [Product])
+
+protocol SortProductsDelegate {
+    func didSuccessSortingProducts(sortedProducts: [Product])
+}
+
+protocol FilterProductsDelegate {
+    func didSuccessFilteringProducts(filteredProducts: [Product])
 }
 
 class ProductManager {
@@ -25,7 +30,8 @@ class ProductManager {
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     var gettingProductDetailDelegate: GettingProductDetailDelegate?
-    var sortOrFilterProductsDelegate: SortOrFilterProductsDelegate?
+    var sortProductsDelegate: SortProductsDelegate?
+    var filterProductsDelegate: FilterProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -108,19 +114,35 @@ class ProductManager {
         task.resume()
     }
     
-    func sortProducts(criteria: SortingCriteria) {
-        var filteredProducts = products
+    func sortProducts(products: [Product], criteria: SortingCriteria) {
+        
+        var listedProducts = products
         
         switch criteria {
         case .priceAscending:
-            filteredProducts.sort { $0.price < $1.price }
+            listedProducts.sort { $0.price < $1.price }
         case .priceDescending:
-            filteredProducts.sort { $0.price > $1.price }
+            listedProducts.sort { $0.price > $1.price }
         case .rating:
-            filteredProducts.sort { $0.rate > $1.rate }
+            listedProducts.sort { $0.rate > $1.rate }
         case .reviews:
-            filteredProducts.sort { $0.reviews > $1.reviews }
+            listedProducts.sort { $0.reviews > $1.reviews }
         }
-        sortOrFilterProductsDelegate?.didSuccessSortingOrFiltering(sortedProducts: filteredProducts)
+        sortProductsDelegate?.didSuccessSortingProducts(sortedProducts: listedProducts)
+        
+    }
+    
+    func filterProducts(criteria: FilterCriteria) {
+        var filteredProducts = products
+    
+        if let minRating = criteria.minRating {
+            filteredProducts = filteredProducts.filter { $0.rate >= minRating }
+        }
+        
+        if let minPrice = criteria.minPrice {
+            filteredProducts = filteredProducts.filter { $0.price >= minPrice }
+        }
+        
+        filterProductsDelegate?.didSuccessFilteringProducts(filteredProducts: filteredProducts)
     }
 }
