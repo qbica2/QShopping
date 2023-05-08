@@ -33,6 +33,8 @@
 		E0C61F402A0426DA00EDCBBD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E0C61F3F2A0426DA00EDCBBD /* Kingfisher */; };
 		E0C61F422A05207500EDCBBD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F412A05207500EDCBBD /* Product.swift */; };
 		E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */; };
+		E0EE7BCD2A0905C7007B45E8 /* FilterCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */; };
+		E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		E0C61F3C2A0409A700EDCBBD /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		E0C61F412A05207500EDCBBD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCriteria.swift; sourceTree = "<group>"; };
+		E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCriteria.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				E019E17D2A011E7F00FBBFAE /* Alert.swift */,
 				E0C61F3A2A04097100EDCBBD /* ProductData.swift */,
 				E0C61F412A05207500EDCBBD /* Product.swift */,
+				E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */,
+				E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				E0C5985229FAB20E00CC1DED /* UserManager.swift in Sources */,
 				E019E1842A02735300FBBFAE /* CategoryManager.swift in Sources */,
 				E0C5984C29FA7EBE00CC1DED /* LoginViewController.swift in Sources */,
+				E0EE7BCD2A0905C7007B45E8 /* FilterCriteria.swift in Sources */,
 				E019E1802A011ED500FBBFAE /* AlertManager.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
 				E0C5985B29FE64A500CC1DED /* AuthManager.swift in Sources */,
@@ -259,6 +266,7 @@
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
 				E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */,
+				E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
 				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
 				E0C61F392A03F2AE00EDCBBD /* ProductCell.swift in Sources */,
