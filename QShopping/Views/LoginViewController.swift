@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success(_):
                     DispatchQueue.main.async {
+                        SelectedTester.shared.user = self.selectedTester
                         self.performSegue(withIdentifier: K.segues.loginToHome, sender: nil)
                     }
                 case.failure(let error):
