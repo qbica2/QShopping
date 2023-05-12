@@ -11,6 +11,8 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     var listedProducts: [Product] = []
+    var searchResults: [Product] = []
+    var searchQuery: String?
     var productManager = ProductManager()
     var categoryManager = CategoryManager()
     var alertManager = AlertManager()
@@ -30,7 +32,9 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         productManager.gettingMultipleProductsDelegate = self
+        productManager.searchProductsDelegate = self
         alertManager.delegate = self
+        searchBar.delegate = self
         
         setupStackViewInScrollView()
         
@@ -210,12 +214,12 @@ extension HomeViewController: AlertManagerDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listedProducts.count
+        return searchQuery != nil ? searchResults.count : listedProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
-        let product = listedProducts[indexPath.row]
+        let product = searchQuery != nil ? searchResults[indexPath.row] : listedProducts[indexPath.row]
         let url = URL(string: product.imageURL)
         cell.imageView.kf.setImage(with: url)
         cell.titleLabel.text = product.title
@@ -268,6 +272,49 @@ extension HomeViewController: GettingMultipleProductsDelegate {
             let alert = self.alertManager.errorAlert(for: error)
             self.alertManager.show(alert: alert)
         }
+    }
+    
+}
+
+//MARK: - UISearchBarDelegate
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchQuery = searchText
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        productManager.searchProducts(for: searchQuery!, products: listedProducts)
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchQuery = nil
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
+            self.collectionView.setContentOffset(topOffset, animated: true)
+        }
+        searchBar.resignFirstResponder()
+    }
+}
+
+//MARK: - SearchProductsDelegate
+
+extension HomeViewController: SearchProductsDelegate {
+    func didSuccessSearchProducts(products: [Product]) {
+        searchResults = products
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
+            self.collectionView.setContentOffset(topOffset, animated: true)
+        }
+    }
+    func didReturnEmptyResult() {
+        let alert = Alert(title: "Product Not Found", message: "No products found for your search. Please try a different keyword.", firstButtonTitle: "OK", firstButtonStyle: .default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: .cancel, secondButtonHandler: nil)
+        alertManager.show(alert: alert)
     }
     
 }
