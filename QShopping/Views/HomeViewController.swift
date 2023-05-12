@@ -66,17 +66,17 @@ class HomeViewController: UIViewController {
         let reviewImage = UIImage(systemName: "text.bubble")
 
         let sortByPriceLowToHigh = UIAction(title: "Price: Low to High", image: upArrowImage) { _ in
-            self.productManager.sortProducts(products: self.listedProducts, criteria: .priceAscending)
+            self.productManager.sortProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: .priceAscending)
         }
         let sortByPriceHighToLow = UIAction(title: "Price: High to Low", image: downArrowImage) { _ in
-            self.productManager.sortProducts(products: self.listedProducts, criteria: .priceDescending)
+            self.productManager.sortProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: .priceDescending)
         }
         let sortByRating = UIAction(title: "Most Rated", image: starImage) { _ in
-            self.productManager.sortProducts(products: self.listedProducts, criteria: .rating)
+            self.productManager.sortProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: .rating)
         }
         
         let sortByReviews = UIAction(title: "Most Reviewed", image: reviewImage) { _ in
-            self.productManager.sortProducts(products: self.listedProducts, criteria: .reviews)
+            self.productManager.sortProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: .reviews)
         }
         
         let priceMenu = UIMenu(title: "Sort By Price",image: dollarImage, children: [sortByPriceLowToHigh,sortByPriceHighToLow])
@@ -259,7 +259,11 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: GettingMultipleProductsDelegate {
     func didSuccessGettingMultipleProducts(products: [Product]) {
-        listedProducts = products
+        if searchQuery != nil {
+            searchResults = products
+        } else {
+            listedProducts = products
+        }
         DispatchQueue.main.async {
             self.collectionView.reloadData()
             let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
