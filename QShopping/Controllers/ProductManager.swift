@@ -10,6 +10,7 @@ import Foundation
 protocol GettingMultipleProductsDelegate {
     func didSuccessGettingMultipleProducts(products: [Product])
     func didFailGettingMultipleProducts(error: Error)
+    func didReturnEmptyResult()
 }
 
 protocol GettingProductDetailDelegate {
@@ -17,17 +18,11 @@ protocol GettingProductDetailDelegate {
     func didFailGettingProductDetail(error: Error)
 }
 
-protocol SearchProductsDelegate {
-    func didSuccessSearchProducts(products: [Product])
-    func didReturnEmptyResult()
-}
-
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     var gettingProductDetailDelegate: GettingProductDetailDelegate?
-    var searchProductsDelegate: SearchProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -128,7 +123,7 @@ class ProductManager {
         gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: listedProducts)
     }
     
-    func filterProducts(criteria: FilterCriteria) {
+    func filterProducts(products: [Product], criteria: FilterCriteria) {
         var filteredProducts = products
     
         if let minRating = criteria.minRating {
@@ -139,28 +134,35 @@ class ProductManager {
             filteredProducts = filteredProducts.filter { $0.price >= minPrice }
         }
         
+        if filteredProducts.count == 0 {
+            gettingMultipleProductsDelegate?.didReturnEmptyResult()
+            return
+        }
+        
         gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: filteredProducts)
     }
     
     func searchProducts(for query: String, products: [Product]) {
         
-        var filteredProducts = products
+        var searchedProducts = products
         
         if query.isEmpty, query == "" {
-            searchProductsDelegate?.didSuccessSearchProducts(products: filteredProducts)
+            gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: searchedProducts)
             return
         }
         
-
         let lowercasedQuery = query.lowercased()
         
-        filteredProducts = filteredProducts.filter {
+        searchedProducts = searchedProducts.filter {
             $0.title.lowercased().contains(lowercasedQuery) || $0.description.lowercased().contains(lowercasedQuery)
         }
-        if filteredProducts.count == 0 {
-            searchProductsDelegate?.didReturnEmptyResult()
+        
+        if searchedProducts.count == 0 {
+            gettingMultipleProductsDelegate?.didReturnEmptyResult()
+            return
         }
-        searchProductsDelegate?.didSuccessSearchProducts(products: filteredProducts)
+        
+        gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: searchedProducts)
 
     }
 }
