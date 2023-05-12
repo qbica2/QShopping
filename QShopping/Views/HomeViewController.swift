@@ -95,32 +95,32 @@ class HomeViewController: UIViewController {
         
         let filterFourStars = UIAction(title: "4+", image: starImage ) { _ in
             let filterCriteria = FilterCriteria(minRating: 4)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let filterThreeStars = UIAction(title: "3+", image: starImage ) { _ in
             let filterCriteria = FilterCriteria(minRating: 3)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let filterTwoStars = UIAction(title: "2+", image: starImage ) { _ in
             let filterCriteria = FilterCriteria(minRating: 2)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let filterByPrice1000 = UIAction(title: "1000+", image: dolarImage) { _ in
             let filterCriteria = FilterCriteria(minPrice: 1000)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let filterByPrice500 = UIAction(title: "500+", image: dolarImage) { _ in
             let filterCriteria = FilterCriteria(minPrice: 500)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let filterByPrice100 = UIAction(title: "100+", image: dolarImage) { _ in
             let filterCriteria = FilterCriteria(minPrice: 100)
-            self.productManager.filterProducts(criteria: filterCriteria)
+            self.productManager.filterProducts(products: self.searchQuery != nil ? self.searchResults : self.listedProducts, criteria: filterCriteria)
         }
         
         let rateMenu = UIMenu(title: "Filter by Rate", image: starImage, children: [filterFourStars, filterThreeStars, filterTwoStars])
@@ -176,6 +176,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func resetFilterPressed(_ sender: UIButton) {
+        searchQuery = nil
         listedProducts = productManager.products
         DispatchQueue.main.async {
             self.collectionView.reloadData()
