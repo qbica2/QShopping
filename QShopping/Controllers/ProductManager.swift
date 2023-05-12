@@ -17,11 +17,17 @@ protocol GettingProductDetailDelegate {
     func didFailGettingProductDetail(error: Error)
 }
 
+protocol SearchProductsDelegate {
+    func didSuccessSearchProducts(products: [Product])
+    func didReturnEmptyResult()
+}
+
 class ProductManager {
     let baseUrl = "https://fakestoreapi.com/products"
     var products: [Product] = []
     var gettingMultipleProductsDelegate: GettingMultipleProductsDelegate?
     var gettingProductDetailDelegate: GettingProductDetailDelegate?
+    var searchProductsDelegate: SearchProductsDelegate?
     
     func getProducts(categoryName: String? = nil){
         var urlString = baseUrl
@@ -134,5 +140,27 @@ class ProductManager {
         }
         
         gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: filteredProducts)
+    }
+    
+    func searchProducts(for query: String, products: [Product]) {
+        
+        var filteredProducts = products
+        
+        if query.isEmpty, query == "" {
+            searchProductsDelegate?.didSuccessSearchProducts(products: filteredProducts)
+            return
+        }
+        
+
+        let lowercasedQuery = query.lowercased()
+        
+        filteredProducts = filteredProducts.filter {
+            $0.title.lowercased().contains(lowercasedQuery) || $0.description.lowercased().contains(lowercasedQuery)
+        }
+        if filteredProducts.count == 0 {
+            searchProductsDelegate?.didReturnEmptyResult()
+        }
+        searchProductsDelegate?.didSuccessSearchProducts(products: filteredProducts)
+
     }
 }
