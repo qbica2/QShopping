@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         productManager.gettingMultipleProductsDelegate = self
-        productManager.searchProductsDelegate = self
         alertManager.delegate = self
         searchBar.delegate = self
         
@@ -279,6 +278,11 @@ extension HomeViewController: GettingMultipleProductsDelegate {
         }
     }
     
+    func didReturnEmptyResult() {
+        let alert = Alert(title: "Product Not Found", message: "No products found for your search. Please try a different keyword.", firstButtonTitle: "OK", firstButtonStyle: .default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: .cancel, secondButtonHandler: nil)
+        alertManager.show(alert: alert)
+    }
+    
 }
 
 //MARK: - UISearchBarDelegate
@@ -304,22 +308,4 @@ extension HomeViewController: UISearchBarDelegate {
         }
         searchBar.resignFirstResponder()
     }
-}
-
-//MARK: - SearchProductsDelegate
-
-extension HomeViewController: SearchProductsDelegate {
-    func didSuccessSearchProducts(products: [Product]) {
-        searchResults = products
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-            let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
-            self.collectionView.setContentOffset(topOffset, animated: true)
-        }
-    }
-    func didReturnEmptyResult() {
-        let alert = Alert(title: "Product Not Found", message: "No products found for your search. Please try a different keyword.", firstButtonTitle: "OK", firstButtonStyle: .default, isSecondButtonActive: false, secondButtonTitle: "CANCEL", secondButtonStyle: .cancel, secondButtonHandler: nil)
-        alertManager.show(alert: alert)
-    }
-    
 }
