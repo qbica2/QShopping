@@ -35,6 +35,7 @@
 		E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */; };
 		E0EE7BCD2A0905C7007B45E8 /* FilterCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */; };
 		E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */; };
+		E0EE7BD12A0E784B007B45E8 /* SelectedTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCriteria.swift; sourceTree = "<group>"; };
 		E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCriteria.swift; sourceTree = "<group>"; };
+		E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				E0C61F412A05207500EDCBBD /* Product.swift */,
 				E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */,
 				E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */,
+				E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
 				E0C61F3D2A0409A700EDCBBD /* ProductManager.swift in Sources */,
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
+				E0EE7BD12A0E784B007B45E8 /* SelectedTester.swift in Sources */,
 				E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */,
 				E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */,
 				E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */,
