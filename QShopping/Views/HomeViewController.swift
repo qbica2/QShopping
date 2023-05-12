@@ -249,7 +249,8 @@ extension HomeViewController: UICollectionViewDelegate {
         if segue.identifier == K.segues.homeToDetail {
             let destinationVC = segue.destination as! ProductDetailViewController
             if let indexPath = collectionView.indexPathsForSelectedItems?.first{
-                destinationVC.selectedProductID = listedProducts[indexPath.row].id
+                let product = searchQuery != nil ? searchResults[indexPath.row] : listedProducts[indexPath.row]
+                destinationVC.selectedProductID = product.id
             }
         }
     }
