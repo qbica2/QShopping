@@ -25,7 +25,7 @@ class UserManager {
                     let decodedData = try decoder.decode([UserData].self, from: data)
                     
                     for userData in decodedData {
-                        let user = User(email: userData.email, username: userData.username, password: userData.password, firstname: userData.name.firstname, lastname: userData.name.lastname)
+                        let user = User(id: userData.id, email: userData.email, username: userData.username, password: userData.password, firstname: userData.name.firstname, lastname: userData.name.lastname)
                         self.users.append(user)
                     }
                     
