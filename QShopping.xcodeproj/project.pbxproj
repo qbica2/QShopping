@@ -37,6 +37,8 @@
 		E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */; };
 		E0EE7BD12A0E784B007B45E8 /* SelectedTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */; };
 		E0EE7BD32A0EA3C7007B45E8 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */; };
+		E0EE7BD82A138ECE007B45E8 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD72A138ECE007B45E8 /* ShoppingCartManager.swift */; };
+		E0EE7BDA2A13A9BA007B45E8 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD92A13A9BA007B45E8 /* CartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCriteria.swift; sourceTree = "<group>"; };
 		E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTester.swift; sourceTree = "<group>"; };
 		E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		E0EE7BD72A138ECE007B45E8 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
+		E0EE7BD92A13A9BA007B45E8 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */,
 				E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */,
 				E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */,
+				E0EE7BD92A13A9BA007B45E8 /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				E019E17F2A011ED500FBBFAE /* AlertManager.swift */,
 				E019E1832A02735300FBBFAE /* CategoryManager.swift */,
 				E0C61F3C2A0409A700EDCBBD /* ProductManager.swift */,
+				E0EE7BD72A138ECE007B45E8 /* ShoppingCartManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */,
 				E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */,
 				E019E17E2A011E7F00FBBFAE /* Alert.swift in Sources */,
+				E0EE7BD82A138ECE007B45E8 /* ShoppingCartManager.swift in Sources */,
 				E0C61F3B2A04097100EDCBBD /* ProductData.swift in Sources */,
 				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
 				E0C61F3D2A0409A700EDCBBD /* ProductManager.swift in Sources */,
@@ -277,6 +284,7 @@
 				E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */,
 				E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */,
 				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
+				E0EE7BDA2A13A9BA007B45E8 /* CartItem.swift in Sources */,
 				E0C61F392A03F2AE00EDCBBD /* ProductCell.swift in Sources */,
 				E0C5985729FB399300CC1DED /* UserCell.swift in Sources */,
 				E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */,
