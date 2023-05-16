@@ -17,6 +17,8 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var selectedProduct: Product?
+    
     @IBAction func addToCartPressed(_ sender: UIButton) {
     }
     
