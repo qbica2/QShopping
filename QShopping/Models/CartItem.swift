@@ -9,5 +9,5 @@ import Foundation
 
 struct CartItem {
     let product: Product
-    let quantity: Int
+    var quantity: Int
 }
