@@ -36,6 +36,7 @@
 		E0EE7BCD2A0905C7007B45E8 /* FilterCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */; };
 		E0EE7BCF2A0936BE007B45E8 /* SortingCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */; };
 		E0EE7BD12A0E784B007B45E8 /* SelectedTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */; };
+		E0EE7BD32A0EA3C7007B45E8 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		E0EE7BCC2A0905C7007B45E8 /* FilterCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCriteria.swift; sourceTree = "<group>"; };
 		E0EE7BCE2A0936BE007B45E8 /* SortingCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingCriteria.swift; sourceTree = "<group>"; };
 		E0EE7BD02A0E784B007B45E8 /* SelectedTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTester.swift; sourceTree = "<group>"; };
+		E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				E0C5984929FA7E6800CC1DED /* TesterRegisterViewController.swift */,
 				E019E1812A01673800FBBFAE /* HomeViewController.swift */,
 				E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */,
+				E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				E0EE7BCD2A0905C7007B45E8 /* FilterCriteria.swift in Sources */,
 				E019E1802A011ED500FBBFAE /* AlertManager.swift in Sources */,
 				E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */,
+				E0EE7BD32A0EA3C7007B45E8 /* ShoppingCartViewController.swift in Sources */,
 				E0C5985B29FE64A500CC1DED /* AuthManager.swift in Sources */,
 				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
 				E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */,
