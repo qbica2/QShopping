@@ -226,6 +226,7 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.priceLabel.text = "$\(product.price)"
         cell.rateLabel.text = String(product.rate)
         cell.reviewLabel.text = "\(product.reviews) reviews"
+        cell.selectedProduct = product
         
         return cell
     }
