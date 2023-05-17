@@ -22,22 +22,22 @@ class ShoppingCartViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
-//        updateUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
+        updateUI()
     }
     
     
-//    @objc func updateUI(){
-//        let totalItem = cartManager.cartItemCount
-//        let totalPrice = cartManager.totalCartPrice()
-//        let formattedPrice = String(format: "%.2f", totalPrice)
-//
-//        DispatchQueue.main.async {
-//            self.totalItemsLabel.text = "(\(totalItem))"
-//            self.totalPrice.text = "$\(formattedPrice)"
-//            self.tableView.reloadData()
-//        }
-//    }
+    @objc func updateUI(){
+        let totalItem = cartManager.cartItemCount
+        let totalPrice = cartManager.totalCartPrice()
+        let formattedPrice = String(format: "%.2f", totalPrice)
+
+        DispatchQueue.main.async {
+            self.totalItemsLabel.text = "(\(totalItem))"
+            self.totalPrice.text = "$\(formattedPrice)"
+            self.tableView.reloadData()
+        }
+    }
     
     
     @IBAction func emptyBasketButtonPressed(_ sender: UIBarButtonItem) {
