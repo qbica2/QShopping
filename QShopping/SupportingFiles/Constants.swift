@@ -23,7 +23,11 @@ struct K {
     }
     struct Alert {
         static let errorTitle = "Error!"
+        static let successTitle = "Success!"
         static let defaultButtonTitle = "OK"
         static let cancelButtonTitle = "CANCEL"
+    }
+    struct NotificationName {
+        static let productAdded = "ProductAdded"
     }
 }
