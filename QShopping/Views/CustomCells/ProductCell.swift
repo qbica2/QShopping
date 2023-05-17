@@ -20,6 +20,7 @@ class ProductCell: UICollectionViewCell {
     var selectedProduct: Product?
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
+        CartManager.shared.addToCart(selectedProduct!)
     }
     
     @IBAction func favoritePressed(_ sender: UIButton) {
