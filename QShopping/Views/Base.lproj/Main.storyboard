@@ -663,18 +663,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-wI-h2Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6SZ-wI-h2Z">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="689"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShoppingCartCell" rowHeight="148" id="NiA-z4-CFw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShoppingCartCell" rowHeight="148" id="NiA-z4-CFw" customClass="ShoppingCartCell" customModule="QShopping" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NiA-z4-CFw" id="UEz-ms-Viz">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRE-5F-P4z">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRE-5F-P4z">
                                                     <rect key="frame" x="30" y="29" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="CqB-Rt-qMm"/>
@@ -719,6 +719,9 @@
                                                                                 <imageReference key="image" image="minus.circle" catalog="system" symbolScale="default"/>
                                                                                 <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                                                             </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="quantityAction:" destination="NiA-z4-CFw" eventType="touchUpInside" id="6j0-Nc-ldM"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPT-OK-nm0">
                                                                             <rect key="frame" x="37.000000000000028" y="0.0" width="37.333333333333343" height="34.333333333333336"/>
@@ -726,13 +729,16 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-0o-4YN">
+                                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-0o-4YN">
                                                                             <rect key="frame" x="74.333333333333343" y="0.0" width="37" height="34.333333333333336"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain">
                                                                                 <imageReference key="image" image="plus.circle" catalog="system" symbolScale="default"/>
                                                                                 <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                                                             </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="quantityAction:" destination="NiA-z4-CFw" eventType="touchUpInside" id="EHW-GV-Awc"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -749,6 +755,14 @@
                                                 <constraint firstItem="QRE-5F-P4z" firstAttribute="centerY" secondItem="UEz-ms-Viz" secondAttribute="centerY" id="suh-4y-Iyk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="decreaseQuantityButton" destination="dtw-ta-hhw" id="rZq-tC-sKe"/>
+                                            <outlet property="descriptionLabel" destination="d1E-Fd-rJl" id="gsx-h6-prR"/>
+                                            <outlet property="itemImage" destination="QRE-5F-P4z" id="B0N-Ek-TD9"/>
+                                            <outlet property="priceLabel" destination="fZC-2x-X69" id="LgM-Wk-5o7"/>
+                                            <outlet property="quantityLabel" destination="OPT-OK-nm0" id="80X-1M-fin"/>
+                                            <outlet property="titleLabel" destination="gdr-c9-dDv" id="vaO-jh-Zc2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
