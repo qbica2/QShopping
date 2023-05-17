@@ -19,6 +19,7 @@ struct K {
     struct cells {
         static let testerCell = "testerCell"
         static let productCell = "productCell"
+        static let shoppingCartCell = "ShoppingCartCell"
     }
     struct Alert {
         static let errorTitle = "Error!"
