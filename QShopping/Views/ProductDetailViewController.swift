@@ -17,6 +17,8 @@ class ProductDetailViewController: UIViewController {
             productManager.getProduct(id: selectedProductID!)
         }
     }
+    
+    var selectedProduct: Product?
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -40,15 +42,28 @@ class ProductDetailViewController: UIViewController {
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
+        
+        let stepperValue = Int(sender.value)
+        let totalPrice = selectedProduct!.price * sender.value
+        let formattedPrice = String(format: "%.2f", totalPrice)
+        
+        DispatchQueue.main.async {
+            self.countTextField.text = String(stepperValue)
+            self.addProductButton.subtitleLabel?.text = formattedPrice
+        }
+        
     }
     
     @IBAction func addProductButtonPressed(_ sender: UIButton) {
+//        let quantity = Int(countTextField.text!)!
+//        CartManager.shared.addToCart(selectedProduct!, quantity: quantity)
     }
 }
 //MARK: - GettingProductDetailDelegate
 
 extension ProductDetailViewController: GettingProductDetailDelegate {
     func didSuccessGettingProductDetail(product: Product) {
+        selectedProduct = product
         DispatchQueue.main.async {
             self.titleLabel.text = product.title
             self.descriptionLabel.text = product.description
