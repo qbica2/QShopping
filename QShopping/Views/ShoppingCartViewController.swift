@@ -15,17 +15,26 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var totalItemsLabel: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     
+    let cartManager = CartManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(cartUpdated), name: NSNotification.Name("CartUpdated"), object: nil)
-
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
+//        updateUI()
     }
     
-//    @objc func cartUpdated(){
+    
+//    @objc func updateUI(){
+//        let totalItem = cartManager.cartItemCount
+//        let totalPrice = cartManager.totalCartPrice()
+//        let formattedPrice = String(format: "%.2f", totalPrice)
+//
 //        DispatchQueue.main.async {
+//            self.totalItemsLabel.text = "(\(totalItem))"
+//            self.totalPrice.text = "$\(formattedPrice)"
 //            self.tableView.reloadData()
 //        }
 //    }
@@ -44,21 +53,22 @@ class ShoppingCartViewController: UIViewController {
 extension ShoppingCartViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CartManager.shared.products.count
+        return cartManager.cartItemCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cells.shoppingCartCell, for: indexPath) as! ShoppingCartCell
         
-        let item = CartManager.shared.products[indexPath.row]
-        cell.priceLabel.text = "$ \(item.product.price)"
-        cell.titleLabel.text = item.product.title
-        cell.descriptionLabel.text = item.product.description
-        cell.quantityLabel.text = String(item.quantity)
-        
-        let url = URL(string: item.product.imageURL)
-        cell.itemImage.kf.setImage(with: url)
-        
+        if let item = cartManager.item(at: indexPath.row) {
+            
+            cell.priceLabel.text = "$ \(item.product.price)"
+            cell.titleLabel.text = item.product.title
+            cell.descriptionLabel.text = item.product.description
+            cell.quantityLabel.text = String(item.quantity)
+            
+            let url = URL(string: item.product.imageURL)
+            cell.itemImage.kf.setImage(with: url)
+        }
         return cell
     }
     
