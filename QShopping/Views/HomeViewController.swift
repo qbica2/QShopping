@@ -54,6 +54,20 @@ class HomeViewController: UIViewController {
         
         editSortButtonMenu()
         editFilterButtonMenu()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProductAddedNotification), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
+    }
+    
+    @objc func handleProductAddedNotification(){
+        let alert = Alert(title: K.Alert.successTitle,
+                          message: "Product Added to your Shopping Cart",
+                          firstButtonTitle: "OK",
+                          firstButtonStyle: UIAlertAction.Style.default,
+                          isSecondButtonActive: false,
+                          secondButtonTitle: "CANCEL",
+                          secondButtonStyle: UIAlertAction.Style.cancel,
+                          secondButtonHandler: nil)
+        alertManager.show(alert: alert)
     }
     
     func editSortButtonMenu() {
