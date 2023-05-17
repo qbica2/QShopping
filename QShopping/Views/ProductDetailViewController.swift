@@ -55,8 +55,8 @@ class ProductDetailViewController: UIViewController {
     }
     
     @IBAction func addProductButtonPressed(_ sender: UIButton) {
-//        let quantity = Int(countTextField.text!)!
-//        CartManager.shared.addToCart(selectedProduct!, quantity: quantity)
+        let quantity = Int(countTextField.text!)!
+        CartManager.shared.addToCart(selectedProduct!, quantity: quantity)
     }
 }
 //MARK: - GettingProductDetailDelegate
