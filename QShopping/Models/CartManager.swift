@@ -23,17 +23,17 @@ class CartManager {
         return products[index]
     }
     
-//    func totalCartPrice() -> Double {
-//        var totalPrice: Double = 0.0
-//        
-//        for item in products {
-//            let productPrice = item.product.price
-//            let itemTotalPrice = productPrice * Double(item.quantity)
-//            totalPrice += itemTotalPrice
-//        }
-//        
-//        return totalPrice
-//    }
+    func totalCartPrice() -> Double {
+        var totalPrice: Double = 0.0
+        
+        for item in products {
+            let productPrice = item.product.price
+            let itemTotalPrice = productPrice * Double(item.quantity)
+            totalPrice += itemTotalPrice
+        }
+        
+        return totalPrice
+    }
     
     func addToCart(_ product: Product, quantity: Int = 1) {
         if let existingItemIndex = products.firstIndex(where: { $0.product.id == product.id }) {
