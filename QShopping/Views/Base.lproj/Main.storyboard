@@ -1057,7 +1057,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Qshopping" id="NHK-Bj-V34">
                         <barButtonItem key="leftBarButtonItem" style="done" id="Mdi-xs-KkF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WN7-fU-zlW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WN7-fU-zlW">
                                 <rect key="frame" x="16" y="5.6666666666666679" width="87" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1070,7 +1070,7 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" style="done" id="vzQ-fj-2SH">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Kmq-Sl-Mme">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Kmq-Sl-Mme">
                                     <rect key="frame" x="347" y="9.3333333333333339" width="30" height="25.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1207,7 +1207,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="425-Tx-qhE">
                                         <rect key="frame" x="52.666666666666686" y="3" width="168" height="34"/>
                                         <subviews>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-h7-v7P">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1VR-h7-v7P">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="34"/>
                                                 <connections>
                                                     <action selector="stepperPressed:" destination="Hca-zv-V2o" eventType="valueChanged" id="Q41-DA-rvZ"/>
