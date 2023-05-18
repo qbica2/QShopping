@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ShoppingCartCellDelegate {
+    func deleteButtonTapped(at index: Int)
+}
+
 class ShoppingCartCell: UITableViewCell {
         
     @IBOutlet weak var itemImage: UIImageView!
@@ -16,6 +20,9 @@ class ShoppingCartCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var decreaseQuantityButton: UIButton!
     
+    var delegate: ShoppingCartCellDelegate?
+    
+    var index: Int?
     var productQuantity: Int? {
         didSet {
             DispatchQueue.main.async {
@@ -62,7 +69,7 @@ class ShoppingCartCell: UITableViewCell {
              if quantity > 1 {
                  quantity -= 1
              } else if quantity == 1 {
-                 print("delete item")
+                 delegate?.deleteButtonTapped(at: index!)
              }
          } else if sender.tag == 1 {
              quantity += 1
