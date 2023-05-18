@@ -18,7 +18,11 @@ class ProductDetailViewController: UIViewController {
         }
     }
     
-    var selectedProduct: Product?
+    var selectedProduct: Product? {
+        didSet {
+            updateUI()
+        }
+    }
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -37,6 +41,20 @@ class ProductDetailViewController: UIViewController {
         productManager.gettingProductDetailDelegate = self
         alertManager.delegate = self
         
+    }
+    
+    func updateUI(){
+        DispatchQueue.main.async {
+            self.titleLabel.text = self.selectedProduct!.title
+            self.descriptionLabel.text = self.selectedProduct!.description
+            self.ratingLabel.text = String(self.selectedProduct!.rate)
+            self.reviewLabel.text = "\(self.selectedProduct!.reviews) reviews"
+            self.priceLabel.text = "$\(self.selectedProduct!.price)"
+            
+            let url = URL(string: self.selectedProduct!.imageURL)
+            self.imageView.kf.setImage(with: url)
+            self.totalPriceLabel.text = "Total Price: $ \(self.selectedProduct!.price)"
+        }
     }
 
     @IBAction func favoritePressed(_ sender: UIButton) {
@@ -71,17 +89,6 @@ class ProductDetailViewController: UIViewController {
 extension ProductDetailViewController: GettingProductDetailDelegate {
     func didSuccessGettingProductDetail(product: Product) {
         selectedProduct = product
-        DispatchQueue.main.async {
-            self.titleLabel.text = product.title
-            self.descriptionLabel.text = product.description
-            self.ratingLabel.text = String(product.rate)
-            self.reviewLabel.text = "\(product.reviews) reviews"
-            self.priceLabel.text = "$\(product.price)"
-            
-            let url = URL(string: product.imageURL)
-            self.imageView.kf.setImage(with: url)
-            self.totalPriceLabel.text = "Total Price: $ \(product.price)"
-        }
     }
     
     func didFailGettingProductDetail(error: Error) {
