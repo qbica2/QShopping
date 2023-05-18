@@ -28,7 +28,8 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var countTextField: UITextField!
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var addProductButton: UIButton!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class ProductDetailViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.countTextField.text = String(stepperValue)
-            self.addProductButton.subtitleLabel?.text = formattedPrice
+            self.totalPriceLabel.text = "Total Price: $ \(formattedPrice)"
         }
         
     }
@@ -57,6 +58,12 @@ class ProductDetailViewController: UIViewController {
     @IBAction func addProductButtonPressed(_ sender: UIButton) {
         let quantity = Int(countTextField.text!)!
         CartManager.shared.addToCart(selectedProduct!, quantity: quantity)
+        stepper.value = 1.0
+        DispatchQueue.main.async {
+            self.countTextField.text = "1"
+            self.totalPriceLabel.text = "Total Price: $ \(self.selectedProduct!.price)"
+            
+        }
     }
 }
 //MARK: - GettingProductDetailDelegate
@@ -73,7 +80,7 @@ extension ProductDetailViewController: GettingProductDetailDelegate {
             
             let url = URL(string: product.imageURL)
             self.imageView.kf.setImage(with: url)
-            self.addProductButton.subtitleLabel?.text = "$\(product.price)"
+            self.totalPriceLabel.text = "Total Price: $ \(product.price)"
         }
     }
     
