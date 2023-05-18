@@ -44,5 +44,14 @@ class CartManager {
         }
         NotificationCenter.default.post(name: NSNotification.Name("ProductAdded"), object: nil)
     }
+    
+    func deleteItemFromCart(at index: Int) {
+        guard index >= 0 && index < products.count else {
+            return
+        }
+        products.remove(at: index)
+        NotificationCenter.default.post(name: NSNotification.Name("ProductDeleted"), object: nil)
+    }
+
 }
 
