@@ -65,7 +65,7 @@ extension ShoppingCartViewController: UITableViewDataSource {
             cell.titleLabel.text = item.product.title
             cell.descriptionLabel.text = item.product.description
             cell.quantityLabel.text = String(item.quantity)
-            
+            cell.productQuantity = item.quantity
             let url = URL(string: item.product.imageURL)
             cell.itemImage.kf.setImage(with: url)
         }
