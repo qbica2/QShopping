@@ -28,6 +28,6 @@ struct K {
         static let cancelButtonTitle = "CANCEL"
     }
     struct NotificationName {
-        static let productAdded = "ProductAdded"
+        static let cartUpdated = "CartUpdated"
     }
 }
