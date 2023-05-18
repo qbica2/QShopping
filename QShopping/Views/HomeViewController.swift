@@ -54,8 +54,8 @@ class HomeViewController: UIViewController {
         
         editSortButtonMenu()
         editFilterButtonMenu()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleProductAddedNotification), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProductAddedNotification), name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
+
     }
     
     @objc func handleProductAddedNotification(){
