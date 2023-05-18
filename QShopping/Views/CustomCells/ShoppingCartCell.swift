@@ -16,6 +16,18 @@ class ShoppingCartCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var decreaseQuantityButton: UIButton!
     
+    var productQuantity: Int? {
+        didSet {
+            DispatchQueue.main.async {
+                if self.productQuantity == 1 {
+                    self.decreaseQuantityButton.setImage(UIImage(systemName: "trash"), for: .normal)
+                } else {
+                    self.decreaseQuantityButton.setImage(UIImage(systemName: "minus.circle"), for: .normal)
+                }
+            }
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -42,19 +54,22 @@ class ShoppingCartCell: UITableViewCell {
     
     @IBAction func quantityAction(_ sender: UIButton) {
         
-//        var quantity = Int(quantityLabel.text!)!
-//        
-//        if sender.tag == 0 {
-//            if quantity > 1 {
-//                quantity -= 1
-//            } else {
-////                itemi sil
-//            }
-//        } else if sender.tag == 1 {
-//            quantity += 1
-//        }
-//        
-//        quantityLabel.text = String(quantity)
+//        guard var quantity = productQuantity else {
+//             return
+//         }
+//
+//         if sender.tag == 0 {
+//             if quantity > 1 {
+//                 quantity -= 1
+//             } else if quantity == 1 {
+//                 print("1, silinecek")
+//             }
+//         } else if sender.tag == 1 {
+//             quantity += 1
+//         }
+//
+//         productQuantity = quantity
+//         quantityLabel.text = String(quantity)
     }
     
 }
