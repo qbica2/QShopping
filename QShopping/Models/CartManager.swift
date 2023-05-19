@@ -50,11 +50,20 @@ class CartManager {
         NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
     }
     
-    func deleteItemFromCart(at index: Int) {
+    func changeQuantity(at index: Int, increment: Bool) {
         guard index >= 0 && index < products.count else {
             return
         }
-        products.remove(at: index)
+
+        let item = products[index]
+        let newQuantity = item.quantity + (increment ? 1 : -1)
+
+        if newQuantity <= 0 {
+            products.remove(at: index)
+        } else {
+            products[index].quantity = newQuantity
+        }
+
         delegate?.didCartChange()
     }
 
