@@ -16,18 +16,20 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var totalPrice: UILabel!
     
     let cartManager = CartManager.shared
+    var alertManager = AlertManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        alertManager.delegate = self
+        cartManager.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(K.NotificationName.productAdded), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
         updateUI()
     }
     
-    
-    @objc func updateUI(){
+   @objc func updateUI(){
         let totalItem = cartManager.cartItemCount
         let totalPrice = cartManager.totalCartPrice()
         let formattedPrice = String(format: "%.2f", totalPrice)
@@ -68,6 +70,9 @@ extension ShoppingCartViewController: UITableViewDataSource {
             cell.productQuantity = item.quantity
             let url = URL(string: item.product.imageURL)
             cell.itemImage.kf.setImage(with: url)
+            
+            cell.index = indexPath.row
+            cell.delegate = self
         }
         return cell
     }
@@ -80,4 +85,35 @@ extension ShoppingCartViewController: UITableViewDelegate {
         return 110
     }
     
+}
+//MARK: - ShoppingCartCellDelegate
+
+extension ShoppingCartViewController: ShoppingCartCellDelegate {
+    func deleteButtonTapped(at index: Int) {
+        let alert = Alert(title: K.Alert.warningTitle,
+                          message: "Are you sure you want to remove this product from your cart?",
+                          firstButtonTitle: K.Alert.cancelButtonTitle,
+                          firstButtonStyle: .cancel,
+                          isSecondButtonActive: true,
+                          secondButtonTitle: K.Alert.yesButtonTitle,
+                          secondButtonStyle: .destructive) {
+            CartManager.shared.deleteItemFromCart(at: index)
+        }
+        self.alertManager.show(alert: alert)
+    }
+    
+}
+//MARK: - AlertManagerDelegate
+
+extension ShoppingCartViewController: AlertManagerDelegate {
+    func presentAlert(alertController: UIAlertController) {
+        self.present(alertController, animated: true)
+    }
+}
+//MARK: - CartManagerDelegate
+
+extension ShoppingCartViewController: CartManagerDelegate {
+    func didCartChange() {
+        updateUI()
+    }
 }
