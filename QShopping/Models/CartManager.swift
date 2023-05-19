@@ -66,6 +66,11 @@ class CartManager {
 
         delegate?.didCartChange()
     }
+    
+    func clearCart() {
+        products.removeAll()
+        delegate?.didCartChange()
+    }
 
 }
 
