@@ -7,11 +7,15 @@
 
 import Foundation
 
+protocol CartManagerDelegate {
+    func didCartChange()
+}
 
 class CartManager {
     static let shared = CartManager()
         
     var products: [CartItem] = []
+    var delegate: CartManagerDelegate?
     
     var cartItemCount: Int {
         return products.count
@@ -51,7 +55,7 @@ class CartManager {
             return
         }
         products.remove(at: index)
-        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
+        delegate?.didCartChange()
     }
 
 }
