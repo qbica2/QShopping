@@ -62,21 +62,23 @@ class ShoppingCartCell: UITableViewCell {
     @IBAction func quantityAction(_ sender: UIButton) {
         
         guard var quantity = productQuantity else {
-             return
-         }
-
-         if sender.tag == 0 {
-             if quantity > 1 {
-                 quantity -= 1
-             } else if quantity == 1 {
-                 delegate?.deleteButtonTapped(at: index!)
-             }
-         } else if sender.tag == 1 {
-             quantity += 1
-         }
-
-         productQuantity = quantity
-         quantityLabel.text = String(quantity)
+            return
+        }
+        
+        if sender.tag == 0 {
+            if quantity > 1 {
+                quantity -= 1
+                CartManager.shared.changeQuantity(at: index!, increment: false)
+            } else if quantity == 1 {
+                delegate?.deleteButtonTapped(at: index!)
+            }
+        } else if sender.tag == 1 {
+            quantity += 1
+            CartManager.shared.changeQuantity(at: index!, increment: true)
+        }
+        
+        productQuantity = quantity
+        quantityLabel.text = String(quantity)
     }
     
 }

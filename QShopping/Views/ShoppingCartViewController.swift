@@ -97,7 +97,7 @@ extension ShoppingCartViewController: ShoppingCartCellDelegate {
                           isSecondButtonActive: true,
                           secondButtonTitle: K.Alert.yesButtonTitle,
                           secondButtonStyle: .destructive) {
-            CartManager.shared.deleteItemFromCart(at: index)
+            CartManager.shared.changeQuantity(at: index, increment: false)
         }
         self.alertManager.show(alert: alert)
     }
