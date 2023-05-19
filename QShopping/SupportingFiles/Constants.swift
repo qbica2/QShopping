@@ -24,6 +24,8 @@ struct K {
     struct Alert {
         static let errorTitle = "Error!"
         static let successTitle = "Success!"
+        static let warningTitle = "Warning!"
+        static let yesButtonTitle = "YES"
         static let defaultButtonTitle = "OK"
         static let cancelButtonTitle = "CANCEL"
     }
