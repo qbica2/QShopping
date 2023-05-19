@@ -43,6 +43,16 @@ class ShoppingCartViewController: UIViewController {
     
     
     @IBAction func emptyBasketButtonPressed(_ sender: UIBarButtonItem) {
+        let alert = Alert(title: K.Alert.warningTitle,
+                          message: "Are you sure you want to empty your cart? This action cannot be undone.",
+                          firstButtonTitle: K.Alert.cancelButtonTitle,
+                          firstButtonStyle: .cancel,
+                          isSecondButtonActive: true,
+                          secondButtonTitle: K.Alert.yesButtonTitle,
+                          secondButtonStyle: .destructive) {
+            self.cartManager.clearCart()
+        }
+        self.alertManager.show(alert: alert)
     }
     
     @IBAction func completeOrderButtonPressed(_ sender: UIButton) {
@@ -97,7 +107,7 @@ extension ShoppingCartViewController: ShoppingCartCellDelegate {
                           isSecondButtonActive: true,
                           secondButtonTitle: K.Alert.yesButtonTitle,
                           secondButtonStyle: .destructive) {
-            CartManager.shared.changeQuantity(at: index, increment: false)
+            self.cartManager.changeQuantity(at: index, increment: false)
         }
         self.alertManager.show(alert: alert)
     }
