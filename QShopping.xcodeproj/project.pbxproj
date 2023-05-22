@@ -11,6 +11,8 @@
 		E019E1802A011ED500FBBFAE /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E17F2A011ED500FBBFAE /* AlertManager.swift */; };
 		E019E1822A01673800FBBFAE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E1812A01673800FBBFAE /* HomeViewController.swift */; };
 		E019E1842A02735300FBBFAE /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E1832A02735300FBBFAE /* CategoryManager.swift */; };
+		E055156D2A1B7E9D00904D4A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E055156C2A1B7E9D00904D4A /* JGProgressHUD */; };
+		E055156F2A1B7EBB00904D4A /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E055156E2A1B7EBB00904D4A /* LoadingIndicator.swift */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -47,6 +49,7 @@
 		E019E17F2A011ED500FBBFAE /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		E019E1812A01673800FBBFAE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E019E1832A02735300FBBFAE /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		E055156E2A1B7EBB00904D4A /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E055156D2A1B7E9D00904D4A /* JGProgressHUD in Frameworks */,
 				E0C61F402A0426DA00EDCBBD /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +177,7 @@
 				E019E17F2A011ED500FBBFAE /* AlertManager.swift */,
 				E019E1832A02735300FBBFAE /* CategoryManager.swift */,
 				E0C61F3C2A0409A700EDCBBD /* ProductManager.swift */,
+				E055156E2A1B7EBB00904D4A /* LoadingIndicator.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			name = QShopping;
 			packageProductDependencies = (
 				E0C61F3F2A0426DA00EDCBBD /* Kingfisher */,
+				E055156C2A1B7E9D00904D4A /* JGProgressHUD */,
 			);
 			productName = QShopping;
 			productReference = E0C5982C29F92B0700CC1DED /* QShopping.app */;
@@ -236,6 +242,7 @@
 			mainGroup = E0C5982329F92B0700CC1DED;
 			packageReferences = (
 				E0C61F3E2A0426DA00EDCBBD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E055156B2A1B7E9D00904D4A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = E0C5982D29F92B0700CC1DED /* Products */;
 			projectDirPath = "";
@@ -276,6 +283,7 @@
 				E0C5984829FA7E1000CC1DED /* RegisterViewController.swift in Sources */,
 				E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */,
 				E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */,
+				E055156F2A1B7EBB00904D4A /* LoadingIndicator.swift in Sources */,
 				E019E17E2A011E7F00FBBFAE /* Alert.swift in Sources */,
 				E0EE7BD82A138ECE007B45E8 /* CartManager.swift in Sources */,
 				E0C61F3B2A04097100EDCBBD /* ProductData.swift in Sources */,
@@ -518,6 +526,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E055156B2A1B7E9D00904D4A /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E0C61F3E2A0426DA00EDCBBD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -529,6 +545,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E055156C2A1B7E9D00904D4A /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E055156B2A1B7E9D00904D4A /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		E0C61F3F2A0426DA00EDCBBD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0C61F3E2A0426DA00EDCBBD /* XCRemoteSwiftPackageReference "Kingfisher" */;
