@@ -12,6 +12,8 @@ class ProductDetailViewController: UIViewController {
     
     var productManager = ProductManager()
     var alertManager = AlertManager()
+    let loadingView = LoadingIndicator.shared
+    
     var selectedProductID: Int? {
         didSet{
             productManager.getProduct(id: selectedProductID!)
@@ -40,11 +42,13 @@ class ProductDetailViewController: UIViewController {
         
         productManager.gettingProductDetailDelegate = self
         alertManager.delegate = self
-        
+        loadingView.show(in: self.view)
+
     }
     
     func updateUI(){
         DispatchQueue.main.async {
+            self.loadingView.dismiss()
             self.titleLabel.text = self.selectedProduct!.title
             self.descriptionLabel.text = self.selectedProduct!.description
             self.ratingLabel.text = String(self.selectedProduct!.rate)
