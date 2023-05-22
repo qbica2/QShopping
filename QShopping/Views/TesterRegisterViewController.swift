@@ -10,16 +10,19 @@ import UIKit
 class TesterRegisterViewController: UITableViewController {
 
     var userManager = UserManager()
+    let loadingView = LoadingIndicator.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 100
+        loadingView.show(in: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         userManager.getUsers { error in
             if error == nil {
                 DispatchQueue.main.async {
+                    self.loadingView.dismiss()
                     self.tableView.reloadData()
                 }
             }
