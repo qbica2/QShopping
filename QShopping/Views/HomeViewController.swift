@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     var categoryManager = CategoryManager()
     var alertManager = AlertManager()
     let stackView = UIStackView()
+    let loadingView = LoadingIndicator.shared
 
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,6 +28,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingView.show(in: self.view)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -281,6 +283,7 @@ extension HomeViewController: GettingMultipleProductsDelegate {
             listedProducts = products
         }
         DispatchQueue.main.async {
+            self.loadingView.dismiss()
             self.collectionView.reloadData()
             let topOffset = CGPoint(x: 0, y: -self.collectionView.contentInset.top)
             self.collectionView.setContentOffset(topOffset, animated: true)
