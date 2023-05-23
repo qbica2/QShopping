@@ -71,6 +71,12 @@ class CartManager {
         products.removeAll()
         delegate?.didCartChange()
     }
-
+    
+    func deleteItemFromCart(id: Int) {
+        if let index = products.firstIndex(where: { $0.product.id == id }) {
+            products.remove(at: index)
+            delegate?.didCartChange()
+        }
+    }
 }
 
