@@ -38,10 +38,6 @@ class ShoppingCartCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.lightGray.cgColor
-        contentView.layer.cornerRadius = 8.0
-        contentView.layer.masksToBounds = true
         itemImage.layer.cornerRadius = 8.0
         
     }
