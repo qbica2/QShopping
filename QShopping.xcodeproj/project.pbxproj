@@ -13,6 +13,8 @@
 		E019E1842A02735300FBBFAE /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E019E1832A02735300FBBFAE /* CategoryManager.swift */; };
 		E055156D2A1B7E9D00904D4A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = E055156C2A1B7E9D00904D4A /* JGProgressHUD */; };
 		E055156F2A1B7EBB00904D4A /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E055156E2A1B7EBB00904D4A /* LoadingIndicator.swift */; };
+		E05515712A1CD96B00904D4A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515702A1CD96B00904D4A /* FavoritesViewController.swift */; };
+		E05515732A1CFC8100904D4A /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515722A1CFC8100904D4A /* FavoriteCell.swift */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -50,6 +52,8 @@
 		E019E1812A01673800FBBFAE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E019E1832A02735300FBBFAE /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		E055156E2A1B7EBB00904D4A /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		E05515702A1CD96B00904D4A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E05515722A1CFC8100904D4A /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				E019E1812A01673800FBBFAE /* HomeViewController.swift */,
 				E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */,
 				E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */,
+				E05515702A1CD96B00904D4A /* FavoritesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				E0C5985629FB399300CC1DED /* UserCell.swift */,
 				E0C61F382A03F2AE00EDCBBD /* ProductCell.swift */,
 				E0EE7BDB2A13B829007B45E8 /* ShoppingCartCell.swift */,
+				E05515722A1CFC8100904D4A /* FavoriteCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -284,10 +290,12 @@
 				E0C61F442A053A6500EDCBBD /* ProductDetailViewController.swift in Sources */,
 				E0C5985929FD2AFE00CC1DED /* ValidationHelper.swift in Sources */,
 				E055156F2A1B7EBB00904D4A /* LoadingIndicator.swift in Sources */,
+				E05515732A1CFC8100904D4A /* FavoriteCell.swift in Sources */,
 				E019E17E2A011E7F00FBBFAE /* Alert.swift in Sources */,
 				E0EE7BD82A138ECE007B45E8 /* CartManager.swift in Sources */,
 				E0C61F3B2A04097100EDCBBD /* ProductData.swift in Sources */,
 				E0C5984A29FA7E6800CC1DED /* TesterRegisterViewController.swift in Sources */,
+				E05515712A1CD96B00904D4A /* FavoritesViewController.swift in Sources */,
 				E0C61F3D2A0409A700EDCBBD /* ProductManager.swift in Sources */,
 				E0C5984F29FAA16000CC1DED /* UserData.swift in Sources */,
 				E0EE7BD12A0E784B007B45E8 /* SelectedTester.swift in Sources */,
