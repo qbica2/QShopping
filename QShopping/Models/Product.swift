@@ -16,4 +16,5 @@ struct Product {
     let imageURL: String
     let rate: Double
     let reviews: Int
+    var islike: Bool
 }
