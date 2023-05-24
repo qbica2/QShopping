@@ -244,6 +244,9 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.reviewLabel.text = "\(product.reviews) reviews"
         cell.selectedProduct = product
         
+        let favImage = product.islike ? "heart.fill" : "heart"
+        cell.favoriteButton.setImage(UIImage(systemName: favImage), for: .normal)
+        
         return cell
     }
 }
