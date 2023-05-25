@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     var alertManager = AlertManager()
     let stackView = UIStackView()
     let loadingView = LoadingIndicator.shared
+    var favoriteManager = FavoriteManager.shared
 
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -234,7 +235,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cells.productCell, for: indexPath) as! ProductCell
         let product = searchQuery != nil ? searchResults[indexPath.row] : listedProducts[indexPath.row]
         let url = URL(string: product.imageURL)
         cell.imageView.kf.setImage(with: url)
@@ -244,7 +245,9 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.reviewLabel.text = "\(product.reviews) reviews"
         cell.selectedProduct = product
         
-        let favImage = product.islike ? "heart.fill" : "heart"
+        let isProductInFavorite = favoriteManager.isProductIDInFavorites(product.id)
+        
+        let favImage = isProductInFavorite ? "heart.fill" : "heart"
         cell.favoriteButton.setImage(UIImage(systemName: favImage), for: .normal)
         
         return cell
