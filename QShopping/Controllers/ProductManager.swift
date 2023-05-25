@@ -56,7 +56,7 @@ class ProductManager {
                 let decoder = JSONDecoder()
                 let products = try decoder.decode([ProductData].self, from: data)
                 for product in products {
-                    let newProduct = Product(id: product.id, title: product.title, price: product.price, description: product.description, category: product.category, imageURL: product.image, rate: product.rating.rate, reviews: product.rating.count, islike: false)
+                    let newProduct = Product(id: product.id, title: product.title, price: product.price, description: product.description, category: product.category, imageURL: product.image, rate: product.rating.rate, reviews: product.rating.count)
                     self.products.append(newProduct)
                 }
                 self.gettingMultipleProductsDelegate?.didSuccessGettingMultipleProducts(products: self.products)
@@ -94,7 +94,7 @@ class ProductManager {
             do {
                 let decoder = JSONDecoder()
                 let productData = try decoder.decode(ProductData.self, from: data)
-                let product = Product(id: productData.id, title: productData.title, price: productData.price, description: productData.description, category: productData.category, imageURL: productData.image, rate: productData.rating.rate, reviews: productData.rating.count, islike: false)
+                let product = Product(id: productData.id, title: productData.title, price: productData.price, description: productData.description, category: productData.category, imageURL: productData.image, rate: productData.rating.rate, reviews: productData.rating.count)
                 
                 self.gettingProductDetailDelegate?.didSuccessGettingProductDetail(product: product)
             } catch {
