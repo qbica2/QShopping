@@ -20,6 +20,7 @@ struct K {
         static let testerCell = "testerCell"
         static let productCell = "productCell"
         static let shoppingCartCell = "ShoppingCartCell"
+        static let favoriteCell = "FavoriteCell"
     }
     struct Alert {
         static let errorTitle = "Error!"
