@@ -35,6 +35,7 @@ class FavoriteCell: UITableViewCell {
     }
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
+        CartManager.shared.addToCart(selectedProduct!)
     }
     
     
