@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         editSortButtonMenu()
         editFilterButtonMenu()
         NotificationCenter.default.addObserver(self, selector: #selector(handleProductAddedNotification), name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
     }
     
     @objc func handleProductAddedNotification(){
@@ -71,6 +71,12 @@ class HomeViewController: UIViewController {
                           secondButtonStyle: UIAlertAction.Style.cancel,
                           secondButtonHandler: nil)
         alertManager.show(alert: alert)
+    }
+    
+    @objc func update(){
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func editSortButtonMenu() {
