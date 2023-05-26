@@ -30,6 +30,7 @@ class FavoriteManager {
         } else {
             products.append(product)
         }
+        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
     }
     
     func isProductIDInFavorites(_ productID: Int) -> Bool {
