@@ -36,5 +36,10 @@ class FavoriteManager {
     func isProductIDInFavorites(_ productID: Int) -> Bool {
         return products.contains(where: { $0.id == productID })
     }
+    
+    func clearFavorites(){
+        products.removeAll()
+        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
+    }
 
 }
