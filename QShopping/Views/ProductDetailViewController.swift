@@ -62,6 +62,10 @@ class ProductDetailViewController: UIViewController {
     }
 
     @IBAction func favoritePressed(_ sender: UIButton) {
+        FavoriteManager.shared.toggleFavorite(selectedProduct!)
+        let isProductInFavorite = FavoriteManager.shared.isProductIDInFavorites(selectedProduct!.id)
+        let favImage = isProductInFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: favImage), for: .normal)
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
