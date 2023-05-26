@@ -32,5 +32,6 @@ struct K {
     }
     struct NotificationName {
         static let cartUpdated = "CartUpdated"
+        static let favUpdated = "FavoriteUpdated"
     }
 }
