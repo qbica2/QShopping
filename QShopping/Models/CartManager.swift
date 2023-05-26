@@ -40,14 +40,16 @@ class CartManager {
         return totalPrice
     }
     
-    func addToCart(_ product: Product, quantity: Int = 1) {
+    func addToCart(_ product: Product, quantity: Int = 1, shouldNotify: Bool = true) {
         if let existingItemIndex = products.firstIndex(where: { $0.product.id == product.id }) {
             products[existingItemIndex].quantity += quantity
         } else {
             let newItem = CartItem(product: product, quantity: quantity)
             products.append(newItem)
         }
-        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
+        if shouldNotify {
+            NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
+        }
     }
     
     func changeQuantity(at index: Int, increment: Bool) {
@@ -75,6 +77,13 @@ class CartManager {
     func deleteItemFromCart(id: Int) {
         if let index = products.firstIndex(where: { $0.product.id == id }) {
             products.remove(at: index)
+            delegate?.didCartChange()
+        }
+    }
+    
+    func addMultipleProductsToCart(products: [Product]){
+        for product in products {
+            addToCart(product, shouldNotify: false)
             delegate?.didCartChange()
         }
     }
