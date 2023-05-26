@@ -15,12 +15,15 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     var favoriteManager = FavoriteManager.shared
+    var alertManager = AlertManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        alertManager.delegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
     }
     
@@ -31,6 +34,16 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        let alert = Alert(title: K.Alert.warningTitle,
+                          message: "Are you sure you want to delete all favorites? This action cannot be undone.",
+                          firstButtonTitle: K.Alert.cancelButtonTitle,
+                          firstButtonStyle: .cancel,
+                          isSecondButtonActive: true,
+                          secondButtonTitle: K.Alert.yesButtonTitle,
+                          secondButtonStyle: .destructive) {
+            self.favoriteManager.clearFavorites()
+        }
+        self.alertManager.show(alert: alert)
     }
     
     @IBAction func primaryButtonTapped(_ sender: UIButton) {
@@ -71,5 +84,12 @@ extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+//MARK: - AlertManagerDelegate
+
+extension FavoritesViewController: AlertManagerDelegate {
+    func presentAlert(alertController: UIAlertController) {
+        self.present(alertController, animated: true)
     }
 }
