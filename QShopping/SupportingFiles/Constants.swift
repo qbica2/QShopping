@@ -15,6 +15,8 @@ struct K {
         static let testerToLogin = "testerToLogin"
         static let loginToHome = "loginToHome"
         static let homeToDetail = "toDetailVC"
+        static let cartToDetail = "cartToDetail"
+        static let favoriteToDetail = "favToDetail"
     }
     struct cells {
         static let testerCell = "testerCell"
