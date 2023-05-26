@@ -57,6 +57,13 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func primaryButtonTapped(_ sender: UIButton) {
+        if favoriteManager.products.isEmpty {
+            if let tabBarController = self.tabBarController {
+                tabBarController.selectedIndex = 0
+            }
+        } else {
+//             ürünleri sepete at
+        }
     }
 }
 //MARK: - UITableViewDataSource
