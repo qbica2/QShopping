@@ -16,6 +16,7 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    var selectedProduct: Product?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,7 @@ class FavoriteCell: UITableViewCell {
     
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
+        FavoriteManager.shared.toggleFavorite(selectedProduct!)
     }
     
     @IBAction func addToCartPressed(_ sender: UIButton) {
