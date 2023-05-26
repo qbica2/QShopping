@@ -41,5 +41,12 @@ class FavoriteManager {
         products.removeAll()
         NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
     }
+    
+    func removeFromFavorites(id: Int){
+        if let index = products.firstIndex(where: { $0.id == id }) {
+            products.remove(at: index)
+        }
+        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
+    }
 
 }
