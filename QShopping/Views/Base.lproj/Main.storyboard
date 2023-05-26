@@ -880,7 +880,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoQ-iz-EPd">
                                         <rect key="frame" x="88" y="23.000000000000004" width="217" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Ürün eklemek için tıklayın"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Ürün eklemek için tıklayın">
+                                            <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="primaryButtonTapped:" destination="hgi-S0-ETQ" eventType="touchUpInside" id="bYX-a1-KrT"/>
                                         </connections>
@@ -946,6 +948,7 @@
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
                                                                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                                                                <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                                                             </buttonConfiguration>
                                                                             <connections>
                                                                                 <action selector="likeButtonPressed:" destination="IVj-xB-A48" eventType="touchUpInside" id="fHQ-yc-nEx"/>
@@ -954,7 +957,9 @@
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faH-U9-1xL">
                                                                             <rect key="frame" x="55.666666666666657" y="0.0" width="55.666666666666657" height="34.333333333333336"/>
                                                                             <state key="normal" title="Button"/>
-                                                                            <buttonConfiguration key="configuration" style="plain" image="cart.fill.badge.plus" catalog="system"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" image="cart.fill.badge.plus" catalog="system">
+                                                                                <color key="baseForegroundColor" systemColor="systemTealColor"/>
+                                                                            </buttonConfiguration>
                                                                             <connections>
                                                                                 <action selector="addToCartPressed:" destination="IVj-xB-A48" eventType="touchUpInside" id="dpy-xt-dGR"/>
                                                                             </connections>
@@ -1118,7 +1123,7 @@
                                                             <rect key="frame" x="182.66666666666666" y="0.0" width="127.33333333333334" height="40"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                                                <color key="baseForegroundColor" systemColor="secondaryLabelColor"/>
+                                                                <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                                             </buttonConfiguration>
                                                             <connections>
                                                                 <action selector="favoritePressed:" destination="m9T-cL-UaU" eventType="touchUpInside" id="ZPm-f4-uhE"/>
@@ -1196,7 +1201,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Reset Filters"/>
+                                <state key="normal" title="Reset Filters">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                </state>
                                 <connections>
                                     <action selector="resetFilterPressed:" destination="wjC-PX-OFm" eventType="touchUpInside" id="0Wo-Vc-RXF"/>
                                 </connections>
@@ -1207,14 +1214,18 @@
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Kmq-Sl-Mme">
                                     <rect key="frame" x="347" y="9.3333333333333339" width="30" height="25.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" systemColor="systemTealColor"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" image="arrow.up.arrow.down" catalog="system"/>
+                                    <state key="normal" image="arrow.up.arrow.down" catalog="system">
+                                        <color key="titleColor" systemColor="systemTealColor"/>
+                                    </state>
                                 </button>
                             </barButtonItem>
                             <barButtonItem title="Item" style="done" id="CSP-5G-dvk">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="p55-f1-UuB">
                                     <rect key="frame" x="313.33333333333331" y="9.3333333333333339" width="25.666666666666686" height="25.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" systemColor="systemTealColor"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="ellipsis.circle" catalog="system"/>
                                 </button>
@@ -1243,6 +1254,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemTealColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="CvT-WR-rRc" kind="relationship" relationship="viewControllers" id="eZ0-B0-NXj"/>
