@@ -844,11 +844,12 @@
                         <outlet property="tableView" destination="6SZ-wI-h2Z" id="hlO-Pg-V9l"/>
                         <outlet property="totalItemsLabel" destination="3Ab-nD-2dj" id="bMf-pJ-Igp"/>
                         <outlet property="totalPrice" destination="QDn-aX-aso" id="hqL-hB-sFb"/>
+                        <segue destination="Hca-zv-V2o" kind="show" identifier="cartToDetail" id="ehL-k9-3GR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ7-Vf-pt1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5202.2900763358775" y="36.619718309859159"/>
+            <point key="canvasLocation" x="4277" y="51"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Lnz-FM-4L8">
@@ -864,7 +865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j27-eC-ceI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4276" y="1427"/>
+            <point key="canvasLocation" x="3352" y="1488"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Cij-vS-YBJ">
@@ -1014,11 +1015,12 @@
                         <outlet property="deleteButton" destination="QSP-d6-9ax" id="qeK-q8-IJL"/>
                         <outlet property="primaryButton" destination="xoQ-iz-EPd" id="cJd-dd-008"/>
                         <outlet property="tableView" destination="wwb-Yt-NyG" id="TWn-u4-pGW"/>
+                        <segue destination="Hca-zv-V2o" kind="show" identifier="favToDetail" id="zu3-7X-lO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="No1-vD-OMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5202.2900763358775" y="726.76056338028172"/>
+            <point key="canvasLocation" x="4277" y="737"/>
         </scene>
         <!--Qshopping-->
         <scene sceneID="OhE-VE-3XZ">
@@ -1790,7 +1792,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifT-Ye-uiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4275.5725190839694" y="36.619718309859159"/>
+            <point key="canvasLocation" x="3352" y="51"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="Scb-fI-390">
@@ -1809,11 +1811,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciZ-IX-xDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4275.5725190839694" y="726.76056338028172"/>
+            <point key="canvasLocation" x="3352" y="737"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BgK-cs-GJq"/>
+        <segue reference="zu3-7X-lO3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="97"/>
