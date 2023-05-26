@@ -102,7 +102,20 @@ extension FavoritesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.segues.favoriteToDetail, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.segues.favoriteToDetail {
+            let destinationVC = segue.destination as! ProductDetailViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if let product = favoriteManager.item(at: indexPath.row) {
+                    destinationVC.selectedProductID = product.id
+                }
+            }
+         
+        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
