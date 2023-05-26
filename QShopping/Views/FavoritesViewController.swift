@@ -25,11 +25,21 @@ class FavoritesViewController: UIViewController {
         alertManager.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
+        updatePrimaryButton()
     }
     
     @objc func update(){
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.updatePrimaryButton()
+        }
+    }
+    
+    func updatePrimaryButton(){
+        if favoriteManager.products.isEmpty {
+            primaryButton.setTitle("Select Product", for: .normal)
+        } else {
+            primaryButton.setTitle("Add All to Cart", for: .normal)
         }
     }
     
