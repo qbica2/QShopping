@@ -58,14 +58,20 @@ class ProductDetailViewController: UIViewController {
             let url = URL(string: self.selectedProduct!.imageURL)
             self.imageView.kf.setImage(with: url)
             self.totalPriceLabel.text = "Total Price: $ \(self.selectedProduct!.price)"
+            
+            self.changeFavButtonImage()
         }
+    }
+    
+    func changeFavButtonImage(){
+        let isProductInFavorite = FavoriteManager.shared.isProductIDInFavorites(self.selectedProduct!.id)
+        let favImage = isProductInFavorite ? "heart.fill" : "heart"
+        self.favoriteButton.setImage(UIImage(systemName: favImage), for: .normal)
     }
 
     @IBAction func favoritePressed(_ sender: UIButton) {
         FavoriteManager.shared.toggleFavorite(selectedProduct!)
-        let isProductInFavorite = FavoriteManager.shared.isProductIDInFavorites(selectedProduct!.id)
-        let favImage = isProductInFavorite ? "heart.fill" : "heart"
-        favoriteButton.setImage(UIImage(systemName: favImage), for: .normal)
+        changeFavButtonImage()
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
