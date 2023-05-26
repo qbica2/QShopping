@@ -85,6 +85,19 @@ extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, completionhandler in
+            if let itemToDelete = self.favoriteManager.item(at: indexPath.row) {
+                self.favoriteManager.removeFromFavorites(id: itemToDelete.id)
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                completionhandler(true)
+            }
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
 //MARK: - AlertManagerDelegate
 
