@@ -84,8 +84,8 @@ class CartManager {
     func addMultipleProductsToCart(products: [Product]){
         for product in products {
             addToCart(product, shouldNotify: false)
-            delegate?.didCartChange()
         }
+        NotificationCenter.default.post(name: NSNotification.Name(K.NotificationName.cartUpdated), object: nil)
     }
 }
 
