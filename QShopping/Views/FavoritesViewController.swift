@@ -24,7 +24,6 @@ class FavoritesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         alertManager.delegate = self
-        cartManager.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(update), name: NSNotification.Name(K.NotificationName.favUpdated), object: nil)
         updatePrimaryButton()
@@ -136,20 +135,5 @@ extension FavoritesViewController: UITableViewDelegate {
 extension FavoritesViewController: AlertManagerDelegate {
     func presentAlert(alertController: UIAlertController) {
         self.present(alertController, animated: true)
-    }
-}
-//MARK: - CartManagerDelegate
-
-extension FavoritesViewController: CartManagerDelegate {
-    func didCartChange() {
-        let alert = Alert(title: K.Alert.successTitle,
-                          message: "Products Added to your Shopping Cart",
-                          firstButtonTitle: "OK",
-                          firstButtonStyle: UIAlertAction.Style.default,
-                          isSecondButtonActive: false,
-                          secondButtonTitle: "CANCEL",
-                          secondButtonStyle: UIAlertAction.Style.cancel,
-                          secondButtonHandler: nil)
-        alertManager.show(alert: alert)
     }
 }
