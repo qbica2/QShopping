@@ -14,6 +14,7 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var emptyBasketButton: UIBarButtonItem!
     @IBOutlet weak var totalItemsLabel: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var primaryButton: UIButton!
     
     let cartManager = CartManager.shared
     var alertManager = AlertManager()
@@ -38,6 +39,15 @@ class ShoppingCartViewController: UIViewController {
             self.totalItemsLabel.text = "(\(totalItem))"
             self.totalPrice.text = "$\(formattedPrice)"
             self.tableView.reloadData()
+            self.updatePrimartButton()
+        }
+    }
+    
+    func updatePrimartButton(){
+        if cartManager.products.isEmpty {
+            primaryButton.setTitle("Select Product", for: .normal)
+        } else {
+            primaryButton.setTitle("Complete The Order", for: UIControl.State.normal)
         }
     }
     
@@ -55,7 +65,12 @@ class ShoppingCartViewController: UIViewController {
         self.alertManager.show(alert: alert)
     }
     
-    @IBAction func completeOrderButtonPressed(_ sender: UIButton) {
+    @IBAction func primaryButtonPressed(_ sender: UIButton) {
+        if cartManager.products.isEmpty {
+            if let tabBarController = self.tabBarController {
+                tabBarController.selectedIndex = 0
+            }
+        }
     }
     
     

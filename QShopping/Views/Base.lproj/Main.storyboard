@@ -805,7 +805,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="completeOrderButtonPressed:" destination="x9y-tV-EfX" eventType="touchUpInside" id="dpa-k6-VIK"/>
+                                            <action selector="primaryButtonPressed:" destination="x9y-tV-EfX" eventType="touchUpInside" id="bOd-at-5eb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -841,6 +841,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emptyBasketButton" destination="omL-hW-E1l" id="A0C-yf-ea4"/>
+                        <outlet property="primaryButton" destination="n9q-Yj-2sM" id="YB4-9P-eWJ"/>
                         <outlet property="tableView" destination="6SZ-wI-h2Z" id="hlO-Pg-V9l"/>
                         <outlet property="totalItemsLabel" destination="3Ab-nD-2dj" id="bMf-pJ-Igp"/>
                         <outlet property="totalPrice" destination="QDn-aX-aso" id="hqL-hB-sFb"/>
