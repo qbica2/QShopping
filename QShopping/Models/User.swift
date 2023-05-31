@@ -14,4 +14,8 @@ struct User {
     let password: String
     let firstname: String
     let lastname: String
+    
+    var fullname: String {
+        return "\(firstname) \(lastname)"
+    }
 }
