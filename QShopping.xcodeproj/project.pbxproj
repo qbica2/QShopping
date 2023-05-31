@@ -16,6 +16,7 @@
 		E05515712A1CD96B00904D4A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515702A1CD96B00904D4A /* FavoritesViewController.swift */; };
 		E05515732A1CFC8100904D4A /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515722A1CFC8100904D4A /* FavoriteCell.swift */; };
 		E05515752A1F66C600904D4A /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515742A1F66C600904D4A /* FavoriteManager.swift */; };
+		E05515772A24D20A00904D4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515762A24D20A00904D4A /* SettingsViewController.swift */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -56,6 +57,7 @@
 		E05515702A1CD96B00904D4A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E05515722A1CFC8100904D4A /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		E05515742A1F66C600904D4A /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		E05515762A24D20A00904D4A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				E0C61F432A053A6500EDCBBD /* ProductDetailViewController.swift */,
 				E0EE7BD22A0EA3C7007B45E8 /* ShoppingCartViewController.swift */,
 				E05515702A1CD96B00904D4A /* FavoritesViewController.swift */,
+				E05515762A24D20A00904D4A /* SettingsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				E0C5985429FAB2AA00CC1DED /* User.swift in Sources */,
 				E05515752A1F66C600904D4A /* FavoriteManager.swift in Sources */,
 				E0EE7BDA2A13A9BA007B45E8 /* CartItem.swift in Sources */,
+				E05515772A24D20A00904D4A /* SettingsViewController.swift in Sources */,
 				E0C61F392A03F2AE00EDCBBD /* ProductCell.swift in Sources */,
 				E0C5985729FB399300CC1DED /* UserCell.swift in Sources */,
 				E0C5984629FA7C3A00CC1DED /* Constants.swift in Sources */,
