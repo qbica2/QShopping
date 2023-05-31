@@ -17,6 +17,14 @@
 		E05515732A1CFC8100904D4A /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515722A1CFC8100904D4A /* FavoriteCell.swift */; };
 		E05515752A1F66C600904D4A /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515742A1F66C600904D4A /* FavoriteManager.swift */; };
 		E05515772A24D20A00904D4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05515762A24D20A00904D4A /* SettingsViewController.swift */; };
+		E055157B2A27CEF800904D4A /* testers.png in Resources */ = {isa = PBXBuildFile; fileRef = E055157A2A27CEF800904D4A /* testers.png */; };
+		E05515822A27CF0900904D4A /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = E055157C2A27CF0800904D4A /* filter.png */; };
+		E05515832A27CF0900904D4A /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E055157D2A27CF0800904D4A /* cart.png */; };
+		E05515842A27CF0900904D4A /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = E055157E2A27CF0800904D4A /* detail.png */; };
+		E05515852A27CF0900904D4A /* alert.png in Resources */ = {isa = PBXBuildFile; fileRef = E055157F2A27CF0800904D4A /* alert.png */; };
+		E05515862A27CF0900904D4A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515802A27CF0800904D4A /* login.png */; };
+		E05515872A27CF0900904D4A /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515812A27CF0900904D4A /* home.png */; };
+		E05515892A27CF1200904D4A /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515882A27CF1200904D4A /* favorites.png */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -58,6 +66,15 @@
 		E05515722A1CFC8100904D4A /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		E05515742A1F66C600904D4A /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		E05515762A24D20A00904D4A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E05515782A27A50C00904D4A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E055157A2A27CEF800904D4A /* testers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testers.png; sourceTree = "<group>"; };
+		E055157C2A27CF0800904D4A /* filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter.png; sourceTree = "<group>"; };
+		E055157D2A27CF0800904D4A /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		E055157E2A27CF0800904D4A /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail.png; sourceTree = "<group>"; };
+		E055157F2A27CF0800904D4A /* alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert.png; sourceTree = "<group>"; };
+		E05515802A27CF0800904D4A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		E05515812A27CF0900904D4A /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		E05515882A27CF1200904D4A /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,9 +120,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E05515792A27CED400904D4A /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				E055157A2A27CEF800904D4A /* testers.png */,
+				E055157F2A27CF0800904D4A /* alert.png */,
+				E055157D2A27CF0800904D4A /* cart.png */,
+				E055157E2A27CF0800904D4A /* detail.png */,
+				E055157C2A27CF0800904D4A /* filter.png */,
+				E05515812A27CF0900904D4A /* home.png */,
+				E05515802A27CF0800904D4A /* login.png */,
+				E05515882A27CF1200904D4A /* favorites.png */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
 		E0C5982329F92B0700CC1DED = {
 			isa = PBXGroup;
 			children = (
+				E05515792A27CED400904D4A /* screenshots */,
+				E05515782A27A50C00904D4A /* README.md */,
 				E0C5982E29F92B0700CC1DED /* QShopping */,
 				E0C5982D29F92B0700CC1DED /* Products */,
 			);
@@ -270,9 +304,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E055157B2A27CEF800904D4A /* testers.png in Resources */,
 				E0C5983C29F92B0800CC1DED /* LaunchScreen.storyboard in Resources */,
+				E05515822A27CF0900904D4A /* filter.png in Resources */,
 				E0C5983929F92B0800CC1DED /* Assets.xcassets in Resources */,
+				E05515862A27CF0900904D4A /* login.png in Resources */,
+				E05515852A27CF0900904D4A /* alert.png in Resources */,
+				E05515872A27CF0900904D4A /* home.png in Resources */,
 				E0C5983729F92B0700CC1DED /* Main.storyboard in Resources */,
+				E05515892A27CF1200904D4A /* favorites.png in Resources */,
+				E05515842A27CF0900904D4A /* detail.png in Resources */,
+				E05515832A27CF0900904D4A /* cart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
