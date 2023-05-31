@@ -5,7 +5,7 @@ QShopping is a mobile shopping application developed using Swift. It allows user
 
 ## Screenshots
 
-<img src="screenshots/testers.png" alt="Testers" width="250">  <img src="screenshots/login.png" alt="Login" width="250">
+<img src="screenshots/testers.png" alt="Testers" width="250">  <img src="screenshots/login.png" alt="Login" width="250">  <img src="screenshots/dark login.png" alt="Dark Login" width="250">
 
 <img src="screenshots/home.png" alt="Home" width="250">  <img src="screenshots/filter.png" alt="Filter" width="250">  <img src="screenshots/detail.png" alt="Detail" width="250">
 

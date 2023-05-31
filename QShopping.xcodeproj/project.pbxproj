@@ -25,6 +25,7 @@
 		E05515862A27CF0900904D4A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515802A27CF0800904D4A /* login.png */; };
 		E05515872A27CF0900904D4A /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515812A27CF0900904D4A /* home.png */; };
 		E05515892A27CF1200904D4A /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = E05515882A27CF1200904D4A /* favorites.png */; };
+		E055158B2A28037400904D4A /* dark login.png in Resources */ = {isa = PBXBuildFile; fileRef = E055158A2A28037400904D4A /* dark login.png */; };
 		E0C5983029F92B0700CC1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5982F29F92B0700CC1DED /* AppDelegate.swift */; };
 		E0C5983229F92B0700CC1DED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983129F92B0700CC1DED /* SceneDelegate.swift */; };
 		E0C5983429F92B0700CC1DED /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C5983329F92B0700CC1DED /* LandingViewController.swift */; };
@@ -75,6 +76,7 @@
 		E05515802A27CF0800904D4A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		E05515812A27CF0900904D4A /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		E05515882A27CF1200904D4A /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
+		E055158A2A28037400904D4A /* dark login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark login.png"; sourceTree = "<group>"; };
 		E0C5982C29F92B0700CC1DED /* QShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C5982F29F92B0700CC1DED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C5983129F92B0700CC1DED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				E055157C2A27CF0800904D4A /* filter.png */,
 				E05515812A27CF0900904D4A /* home.png */,
 				E05515802A27CF0800904D4A /* login.png */,
+				E055158A2A28037400904D4A /* dark login.png */,
 				E05515882A27CF1200904D4A /* favorites.png */,
 			);
 			path = screenshots;
@@ -304,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E055158B2A28037400904D4A /* dark login.png in Resources */,
 				E055157B2A27CEF800904D4A /* testers.png in Resources */,
 				E0C5983C29F92B0800CC1DED /* LaunchScreen.storyboard in Resources */,
 				E05515822A27CF0900904D4A /* filter.png in Resources */,
