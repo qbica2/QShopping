@@ -63,6 +63,16 @@ QShopping is a mobile shopping application developed using Swift. It allows user
 | kate_h    | kfejk@*_     |
 | jimmie_k  | klein*#%*    |
 
+## Future Features
+
+1. Integration with Firebase Authentication: Firebase Authentication will be used for user registration and login. User authentication processes will be handled through Firebase.
+
+2. Integration with Firestore Database: Products will be stored in the Firestore database, and the application will fetch and display the products from this database. Firestore will provide a wide range of products for users to browse and shop.
+
+3. Storing User Information in Firestore Database: User information such as address and phone number will be stored in the Firestore database. This will ensure that user profile data is securely stored and can be accessed when needed.
+
+4. Firebase Integration for Cart Management, Wishlist, and Quantity Update: Adding items to the cart, managing the wishlist, and updating the quantity of products will be handled using Firebase. This will allow users to synchronize their shopping activities and access them across different devices.
+
 ## Licence
 
 [MIT](https://choosealicense.com/licenses/mit/)
